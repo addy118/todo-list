@@ -4,7 +4,8 @@
   "description": "A webpack bundler template for HTML, CSS, JS with image loaders",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "app": "npx webpack serve"
   },
   "keywords": [],
   "author": "",
