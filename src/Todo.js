@@ -1,5 +1,6 @@
 export class Todo {
     #id = Math.floor(Date.now() * Math.random());
+    status = false;
 
     constructor(title, desc, dueDate, priority) {
         this.title = title;

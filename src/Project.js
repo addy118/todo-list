@@ -10,10 +10,18 @@ export class Project {
     }
 
     addTodo(todo) {
-        return;
+        this.#todos.push(todo);
     }
 
     deleteTodo(id) {
-        return;
+        const todoIndex = this.#todos.findIndex(todo => todo.id == id);
+        this.#todos.splice(todoIndex, 1);
+    }
+
+    toggleTodo(id) {
+        const todoIndex = this.#todos.findIndex(todo => todo.id == id);
+        this.#todos[todoIndex].status == false ?
+            this.#todos[todoIndex].status = true :
+            this.#todos[todoIndex].status = false;
     }
 }
