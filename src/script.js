@@ -1,6 +1,6 @@
 import './style.css'
-import { Project } from './Project'
-import { Todo } from './Todo';
+import { Project } from './classes/Project'
+import { Todo } from './classes/Todo';
 
 const general = new Project('General');
 
