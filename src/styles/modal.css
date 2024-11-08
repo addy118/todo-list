@@ -1,0 +1,58 @@
+dialog {
+    border: none;
+    background-color: rgb(231, 255, 253);
+    color: darkcyan;
+    border-radius: 16px;
+    padding: 32px;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+input,
+select {
+    padding: 4px;
+    color: darkcyan;
+    border: thin solid darkcyan;
+    background-color: white;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+}
+
+input::placeholder {
+    color: rgb(132, 167, 155);
+}
+
+button {
+    border: none;
+    background-color: darkcyan;
+    color: white;
+    font-size: 18px;
+    padding: 6px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgba(0, 139, 139, 0.9);
+}
+
+button:active {
+    background-color: rgba(0, 139, 139, 0.7);
+}

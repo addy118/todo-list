@@ -2,6 +2,7 @@ import { User } from './classes/User.js';
 import { Project } from './classes/Project.js'
 import { Todo } from './classes/Todo.js';
 import { DOM } from './classes/DOM.js';
+import { setupProjectFormListeners, setupUsernameFormListeners } from './modals.js';
 
 
 const addy = new User('Addy');
@@ -31,3 +32,7 @@ DOM.renderProjectTodos(grow);
 DOM.renderProjectTodos(general);
 
 DOM.renderProjectTabs(addy);
+
+// setupTodoFormListeners();
+setupProjectFormListeners();
+setupUsernameFormListeners();

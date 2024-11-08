@@ -1,3 +1,5 @@
+import { Todo } from "./Todo.js";
+
 export class DOM {
     // basic dom manipulation
     static createElement(tag, classNames = [], textContent = '') {
@@ -33,7 +35,57 @@ export class DOM {
             DOM.appendChildren(buttonsContainer, [addTodoBtn, deleteProjectBtn]);
             DOM.appendChildren(projectEl, [projectName, buttonsContainer]);
             DOM.appendChildren(projectsContainer, [projectEl]);
+
+            // event-listeners
+            projectEl.addEventListener('click', () => {
+                DOM.renderProjectTodos(project);
+            })
+
+            addTodoBtn.addEventListener('click', () => {
+                const dialog = document.querySelector('.todo-dialog')
+                const showDialog = document.querySelector('.todo-add');
+                const cancelDialog = document.querySelector('.todo-cancel');
+                const createTodo = document.querySelector('.todo-form');
+
+                showDialog.addEventListener('click', () => {
+                    dialog.showModal();
+                });
+
+                cancelDialog.addEventListener('click', () => {
+                    dialog.close();
+                })
+
+                createTodo.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    const title = document.getElementById('todo-title').value;
+                    const desc = document.getElementById('todo-desc').value;
+                    const dueDate = document.getElementById('todo-due').value;
+                    const priority = document.getElementById('todo-priority').value;
+
+                    const newTodo = new Todo(title, desc, dueDate, priority);
+                    project.addTodo(newTodo);
+                    DOM.renderProjectTodos(project);
+
+                    dialog.close();
+                })
+            })
+
+            deleteProjectBtn.addEventListener('click', () => {
+                DOM.deleteProject(user, project.id);
+            })
         })
+    }
+
+    static updateProjectTabs(user) {
+        const projectsContainer = document.querySelector('.projects-container');
+        DOM.clearContainer(projectsContainer);
+        this.renderProjectTabs(user);
+    }
+
+    static deleteProject(user, projectId) {
+        user.deleteProject(projectId);
+        DOM.updateProjectTabs(user);
     }
 
 
@@ -66,6 +118,10 @@ export class DOM {
 
 
             // event listeners
+            todoEl.addEventListener('click', () => {
+                // show todo details in modal
+            })
+
             toggleBtn.addEventListener('click', () => {
                 todo.status ? todo.status = false : todo.status = true;
 

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/src/styles/style.css">
     <link rel="stylesheet" href="/src/styles/projects.css">
     <link rel="stylesheet" href="/src/styles/todos.css">
+    <link rel="stylesheet" href="/src/styles/modal.css">
 </head>
 
 <body>
@@ -29,8 +30,8 @@
 
 
     <!-- todo form -->
-    <dialog>
-        <form action="script.js">
+    <dialog class="todo-dialog">
+        <form action="script.js" class="todo-form">
             <div class="form-group">
                 <label for="todo-title">Title: </label>
                 <input type="text" name="todo-title" id="todo-title">
@@ -43,42 +44,47 @@
 
             <div class="form-group">
                 <label for="todo-due">Due Date: </label>
-                <input type="text" name="todo-due" id="todo-due">
+                <input type="text" placeholder="DD-MM-YYYY" name="todo-due" id="todo-due">
             </div>
 
             <div class="form-group">
                 <label for="todo-priority">Priority: </label>
-                <input type="text" name="todo-priority" id="todo-priority">
+                <select name="todo-priority" id="todo-priority">
+                    <option value="">Select</option>
+                    <option value="low">Low</option>
+                    <option value="normal">Normal</option>
+                    <option value="high">High</option>
+                </select>
             </div>
 
-            <button class="create-todo create">Create</button>
-            <button class="cancel">Cancel</button>
+            <button type="submit" class="create-todo create">Create</button>
+            <button type="button" class="todo-cancel">Cancel</button>
         </form>
     </dialog>
 
     <!-- project form -->
-    <dialog>
-        <form action="script.js">
+    <dialog class="project-dialog">
+        <form action="script.js" class="project-form">
             <div class="form-group">
                 <label for="project-name">Name: </label>
                 <input type="text" name="project-name" id="project-name">
             </div>
 
-            <button class="create-project create">Create</button>
-            <button class="cancel">Cancel</button>
+            <button type="submit" class="create-project create">Create</button>
+            <button type="button" class="project-cancel">Cancel</button>
         </form>
     </dialog>
 
     <!-- username form -->
-    <dialog>
-        <form action="script.js">
+    <dialog class="username-dialog">
+        <form action="script.js" class="username-form">
             <div class="form-group">
                 <label for="user-name">Username: </label>
                 <input type="text" name="user-name" id="user-name">
             </div>
 
-            <button class="rename-user">Rename</button>
-            <button class="cancel">Cancel</button>
+            <button type="submit" class="rename-user">Rename</button>
+            <button type="button" class="user-cancel">Cancel</button>
         </form>
     </dialog>
 
@@ -87,9 +93,7 @@
     <script type="module" src="/src/classes/Project.js"></script>
     <script type="module" src="/src/classes/Todo.js"></script>
     <script type="module" src="/src/todos.js"></script>
-    <script type="module" src="/src/modals/projectModal.js"></script>
-    <script type="module" src="/src/modals/todoModal.js"></script>
-    <script type="module" src="/src/modals/usernameModal.js"></script>
+    <script type="module" src="/src/modals.js"></script>
 </body>
 
 </html>
