@@ -1,4 +1,5 @@
 export class DOM {
+    // basic dom manipulation
     static createElement(tag, classNames = [], textContent = '') {
         const element = document.createElement('tag');
         element.classList.add(...classNames);
@@ -14,6 +15,29 @@ export class DOM {
         children.forEach(child => parent.appendChild(child));
     }
 
+
+    // userwise project tabs
+    static renderProjectTabs(user) {
+        const projectsContainer = document.querySelector('.projects-container');
+        DOM.clearContainer(projectsContainer);
+
+        user.projects.forEach(project => {
+            const projectEl = DOM.createElement('div', ['project']);
+            projectEl.setAttribute('data-project-id', project.id);
+
+            const projectName = DOM.createElement('div', ['project-name'], project.name);
+            const buttonsContainer = DOM.createElement('div', ['buttons-container']);
+            const addTodoBtn = DOM.createElement('button', ['add', 'todo-add'], '+');
+            const deleteProjectBtn = DOM.createElement('button', ['delete', 'project-delete'], 'x');
+
+            DOM.appendChildren(buttonsContainer, [addTodoBtn, deleteProjectBtn]);
+            DOM.appendChildren(projectEl, [projectName, buttonsContainer]);
+            DOM.appendChildren(projectsContainer, [projectEl]);
+        })
+    }
+
+
+    // projectwise todos
     static renderProjectTodos(project) {
         const todosContainer = document.querySelector('.todos-container');
         DOM.clearContainer(todosContainer);
@@ -34,12 +58,10 @@ export class DOM {
                 ['title', todo.status ? 'checked' : 'unchecked'],
                 todo.title);
 
-            const deleteBtn = DOM.createElement('button', ['delete'], 'x');
+            const deleteBtn = DOM.createElement('button', ['delete', 'todo-delete'], 'x');
 
             DOM.appendChildren(titleContainer, [toggleBtn, titleEl]);
-
             DOM.appendChildren(todoEl, [titleContainer, deleteBtn]);
-
             DOM.appendChildren(todosContainer, [todoEl]);
 
 
@@ -52,7 +74,6 @@ export class DOM {
 
             deleteBtn.addEventListener('click', () => {
                 const { todoId } = todoEl.dataset;
-                console.log(todoId);
                 DOM.deleteTodo(project, todoId);
             })
         })

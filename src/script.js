@@ -5,6 +5,8 @@ import { DOM } from './classes/DOM.js';
 
 
 const addy = new User('Addy');
+const username = document.querySelector('.username>h2');
+username.textContent = addy.name;
 
 const general = addy.projects[0];
 
@@ -22,12 +24,10 @@ general.addTodo(todo2);
 grow.addTodo(todo3);
 grow.addTodo(todo4);
 
-// general.deleteTodo(todo2.id);
-console.log(general.todos);
 
 general.toggleTodo(todo2.id);
 
 DOM.renderProjectTodos(grow);
 DOM.renderProjectTodos(general);
 
-console.log('hi');
+DOM.renderProjectTabs(addy);

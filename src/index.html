@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/src/styles/style.css">
+    <link rel="stylesheet" href="/src/styles/projects.css">
+    <link rel="stylesheet" href="/src/styles/todos.css">
 </head>
 
 <body>
@@ -13,46 +15,81 @@
         <h1>Todo List</h1>
     </header>
     <div class="container">
-        <div class="projects-container">
+        <div class="projects-section">
             <div class="username">
-                <h2>Aditya</h2>
-                <button class="add">+</button>
+                <h2></h2>
+                <button class="add project-add">+</button>
             </div>
-            <div class="project">
-                <div class="name">General</div>
-                <button class="add">+</button>
-            </div>
-            <div class="project">
-                <div class="name">General</div>
-                <button class="add">+</button>
-            </div>
+
+            <div class="projects-container"></div>
         </div>
 
-        <div class="todos-container">
-            <!-- <div class="todo">
-                <div class="title-container">
-                    <button class="toggle">&nbsp;</button>
-                    <button class="toggle">&#9679;</button>
-                    <div class="title">Title of the todo</div>
-                </div>
-                <button class="delete">x</button>
-            </div>
-            <div class="todo">
-                <div class="title-container">
-                    <button class="toggle">&nbsp;</button>
-                    <button class="toggle">&#9679;</button>
-                    <div class="title">Title of the todo</div>
-                </div>
-                <button class="delete">x</button>
-            </div> -->
-        </div>
+        <div class="todos-container"></div>
     </div>
 
-    <script src="/src/script.js" type="module"></script>
-    <script src="/src/classes/User.js" type="module"></script>
-    <script src="/src/classes/Project.js" type="module"></script>
-    <script src="/src/classes/Todo.js" type="module"></script>
-    <script src="/src/todos.js" type="module"></script>
+
+    <!-- todo form -->
+    <dialog>
+        <form action="script.js">
+            <div class="form-group">
+                <label for="todo-title">Title: </label>
+                <input type="text" name="todo-title" id="todo-title">
+            </div>
+
+            <div class="form-group">
+                <label for="todo-desc">Description: </label>
+                <input type="text" name="todo-desc" id="todo-desc">
+            </div>
+
+            <div class="form-group">
+                <label for="todo-due">Due Date: </label>
+                <input type="text" name="todo-due" id="todo-due">
+            </div>
+
+            <div class="form-group">
+                <label for="todo-priority">Priority: </label>
+                <input type="text" name="todo-priority" id="todo-priority">
+            </div>
+
+            <button class="create-todo create">Create</button>
+            <button class="cancel">Cancel</button>
+        </form>
+    </dialog>
+
+    <!-- project form -->
+    <dialog>
+        <form action="script.js">
+            <div class="form-group">
+                <label for="project-name">Name: </label>
+                <input type="text" name="project-name" id="project-name">
+            </div>
+
+            <button class="create-project create">Create</button>
+            <button class="cancel">Cancel</button>
+        </form>
+    </dialog>
+
+    <!-- username form -->
+    <dialog>
+        <form action="script.js">
+            <div class="form-group">
+                <label for="user-name">Username: </label>
+                <input type="text" name="user-name" id="user-name">
+            </div>
+
+            <button class="rename-user">Rename</button>
+            <button class="cancel">Cancel</button>
+        </form>
+    </dialog>
+
+    <script type="module" src="/src/script.js"></script>
+    <script type="module" src="/src/classes/User.js"></script>
+    <script type="module" src="/src/classes/Project.js"></script>
+    <script type="module" src="/src/classes/Todo.js"></script>
+    <script type="module" src="/src/todos.js"></script>
+    <script type="module" src="/src/modals/projectModal.js"></script>
+    <script type="module" src="/src/modals/todoModal.js"></script>
+    <script type="module" src="/src/modals/usernameModal.js"></script>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 export class Project {
-    #id = Math.floor(Date.now() + Math.random())
+    #id = Math.floor(Date.now() * Math.random())
     #todos = [];
 
     constructor(name) {
