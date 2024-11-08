@@ -3,7 +3,7 @@ import { Todo } from "./Todo.js";
 export class DOM {
     // basic dom manipulation
     static createElement(tag, classNames = [], textContent = '') {
-        const element = document.createElement('tag');
+        const element = document.createElement(tag);
         element.classList.add(...classNames);
         element.textContent = textContent;
         return element;
@@ -116,19 +116,39 @@ export class DOM {
             DOM.appendChildren(todoEl, [titleContainer, deleteBtn]);
             DOM.appendChildren(todosContainer, [todoEl]);
 
+            // modal for details
+            const todoDialog = DOM.createElement('dialog', ['todo-expand']);
+            const todoDetails = DOM.createElement('div', ['todo-details']);
+            const title = DOM.createElement('div', ['todo-title'], `Title: ${todo.title}`);
+            const desc = DOM.createElement('div', ['todo-desc'], `Description: ${todo.desc}`);
+            const dueDate = DOM.createElement('div', ['todo-due'], `Due: ${todo.dueDate}`);
+            const priority = DOM.createElement('div', ['todo-priority'], `Priority: ${todo.priority}`);
+            const cancelBtn = DOM.createElement('button', ['details-cancel'], 'Cancel');
+            cancelBtn.setAttribute('type', 'button');
+
+            DOM.appendChildren(todoDetails, [title, desc, dueDate, priority, cancelBtn]);
+            DOM.appendChildren(todoDialog, [todoDetails]);
+            DOM.appendChildren(todoEl, [todoDialog]);
 
             // event listeners
             todoEl.addEventListener('click', () => {
-                // show todo details in modal
+                todoDialog.showModal();
             })
 
-            toggleBtn.addEventListener('click', () => {
+            cancelBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                todoDialog.close();
+            })
+
+            toggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
                 todo.status ? todo.status = false : todo.status = true;
 
                 DOM.updateProjectTodos(project);
             })
 
-            deleteBtn.addEventListener('click', () => {
+            deleteBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
                 const { todoId } = todoEl.dataset;
                 DOM.deleteTodo(project, todoId);
             })

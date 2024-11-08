@@ -1,5 +1,6 @@
 dialog {
     border: none;
+    outline: none;
     background-color: rgb(231, 255, 253);
     color: darkcyan;
     border-radius: 16px;
@@ -39,8 +40,9 @@ input::placeholder {
     color: rgb(132, 167, 155);
 }
 
-button {
+dialog button {
     border: none;
+    outline: none;
     background-color: darkcyan;
     color: white;
     font-size: 18px;
@@ -49,10 +51,16 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+dialog button:hover {
     background-color: rgba(0, 139, 139, 0.9);
 }
 
-button:active {
+dialog button:active {
     background-color: rgba(0, 139, 139, 0.7);
+}
+
+.todo-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
