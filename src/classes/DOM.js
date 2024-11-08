@@ -36,6 +36,62 @@ export class DOM {
             DOM.appendChildren(projectEl, [projectName, buttonsContainer]);
             DOM.appendChildren(projectsContainer, [projectEl]);
 
+            // MODAL FOR RENAMING USER
+            const username = document.querySelector('.username');
+            const showRenameDialog = document.querySelector('.rename');
+
+            const dialog = DOM.createElement('dialog', ['username-dialog']);
+            const form = DOM.createElement('form', ['username-form']);
+            form.setAttribute('action', 'script.js');
+            const formGroup = DOM.createElement('div', ['form-group']);
+            const label = DOM.createElement('label', [], 'Username: ');
+            label.setAttribute('for', 'user-name');
+            const input = DOM.createElement('input', []);
+            input.setAttribute('type', 'text');
+            input.setAttribute('name', 'user-name');
+            input.setAttribute('id', 'user-name');
+
+            const renameBtn = DOM.createElement('button', ['rename-user'], 'Rename');
+            renameBtn.setAttribute('type', 'submit');
+            const cancelBtn = DOM.createElement('button', ['user-cancel'], 'Cancel');
+            cancelBtn.setAttribute('type', 'button');
+
+            DOM.appendChildren(formGroup, [label, input]);
+            DOM.appendChildren(form, [formGroup, renameBtn, cancelBtn]);
+            DOM.appendChildren(dialog, [form]);
+            DOM.appendChildren(username, [dialog]);
+
+            showRenameDialog.addEventListener('click', (e) => {
+                e.preventDefault();
+                // e.stopPropagation();
+                // dialog.showModal();
+                console.log('hi')
+            });
+
+            cancelBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dialog.close();
+            })
+
+            form.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const username = document.getElementById('user-name').value;
+                console.log(username);
+            })
+            // <dialog class="username-dialog">
+            //     <form action="script.js" class="username-form">
+            //         <div class="form-group">
+            //             <label for="user-name">Username: </label>
+            //             <input type="text" name="user-name" id="user-name">
+            //         </div>
+
+            //         <button type="submit" class="rename-user">Rename</button>
+            //         <button type="button" class="user-cancel">Cancel</button>
+            //     </form>
+            // </dialog>
+
             // event-listeners
             projectEl.addEventListener('click', () => {
                 DOM.renderProjectTodos(project);
@@ -116,7 +172,7 @@ export class DOM {
             DOM.appendChildren(todoEl, [titleContainer, deleteBtn]);
             DOM.appendChildren(todosContainer, [todoEl]);
 
-            // modal for details
+            // MODAL FOR TODO DETAILS
             const todoDialog = DOM.createElement('dialog', ['todo-expand']);
             const todoDetails = DOM.createElement('div', ['todo-details']);
             const title = DOM.createElement('div', ['todo-title'], `Title: ${todo.title}`);

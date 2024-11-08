@@ -19,7 +19,10 @@
         <div class="projects-section">
             <div class="username">
                 <h2></h2>
-                <button class="add project-add">+</button>
+                <div class="buttons-container">
+                    <button class="add project-add rename">&#9998;</button>
+                    <button class="add project-add project-create">+</button>
+                </div>
             </div>
 
             <div class="projects-container"></div>
@@ -76,7 +79,7 @@
     </dialog>
 
     <!-- username form -->
-    <dialog class="username-dialog">
+    <!-- <dialog class="username-dialog">
         <form action="script.js" class="username-form">
             <div class="form-group">
                 <label for="user-name">Username: </label>
@@ -86,9 +89,9 @@
             <button type="submit" class="rename-user">Rename</button>
             <button type="button" class="user-cancel">Cancel</button>
         </form>
-    </dialog>
+    </dialog> -->
 
-    <!-- todo expanded -->
+    <!-- todo expanded
     <dialog class="todo-expand">
         <div class="todo-details">
             <div class="title">Title: </div>
@@ -96,7 +99,7 @@
             <div class="dueDate">Due: </div>
             <div class="priority">Priority: </div>
         </div>
-    </dialog>
+    </dialog> -->
 
     <script type="module" src="/src/script.js"></script>
     <script type="module" src="/src/classes/User.js"></script>
