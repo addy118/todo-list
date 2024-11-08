@@ -1,8 +1,15 @@
-import './style.css'
-import { Project } from './classes/Project'
-import { Todo } from './classes/Todo';
+import { User } from './classes/User.js';
+import { Project } from './classes/Project.js'
+import { Todo } from './classes/Todo.js';
+import { DOM } from './classes/DOM.js';
 
-const general = new Project('General');
+
+const addy = new User('Addy');
+
+const general = addy.projects[0];
+
+const grow = new Project('Grow');
+addy.addProject(grow);
 
 const todo1 = new Todo("Grocery Shopping", "Buy vegetables, fruits, and essentials.", "2024-11-10", "High");
 const todo2 = new Todo("Finish Project Report", "Complete the final report for the project.", "2024-11-12", "Medium");
@@ -11,10 +18,16 @@ const todo4 = new Todo("Read Book", "Read 50 pages of the assigned novel.", "202
 
 general.addTodo(todo1);
 general.addTodo(todo2);
-general.addTodo(todo3);
-general.addTodo(todo4);
 
-general.deleteTodo(todo2.id);
+grow.addTodo(todo3);
+grow.addTodo(todo4);
+
+// general.deleteTodo(todo2.id);
 console.log(general.todos);
 
-general.toggleTodo(todo3.id);
+general.toggleTodo(todo2.id);
+
+DOM.renderProjectTodos(grow);
+DOM.renderProjectTodos(general);
+
+console.log('hi');

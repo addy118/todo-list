@@ -1,4 +1,6 @@
-const todos = [
+import { Todo } from "./classes/Todo.js";
+
+export const todos = [
     new Todo("Buy groceries", "Milk, eggs, and bread", "2024-11-09", "High"),
     new Todo("Finish project", "Complete the final report", "2024-11-10", "Medium"),
     new Todo("Walk the dog", "Take Max out for a walk", "2024-11-08", "Low"),

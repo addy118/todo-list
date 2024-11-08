@@ -114,8 +114,8 @@ h2 {
     gap: 10px;
 }
 
-.todo>.title-container>button,
-.todo>button.delete,
+.toggle,
+.delete,
 .add {
     cursor: pointer;
     border: none;
@@ -125,12 +125,20 @@ h2 {
     border-radius: 4px;
 }
 
-.todo>.title-container>button {
+.toggle {
     background-color: white;
     color: darkcyan;
 }
 
-.todo>button.delete {
+.checked {
+    text-decoration: line-through;
+}
+
+.unchecked {
+    text-decoration: none;
+}
+
+.delete {
     background-color: rgb(255, 37, 37);
     color: white;
 }
