@@ -33,13 +33,17 @@ h2 {
     gap: 10px;
 }
 
-.project.todo-add,
-.project.project-delete {
+.create-todo,
+.create-project,
+.rename,
+.delete-project,
+.delete-todo {
     font-size: 18px;
 }
 
-.todo-add,
-.project-add {
+.rename,
+.create-project,
+.create-todo {
     background-color: inherit;
     color: darkcyan;
 }
@@ -57,8 +61,10 @@ h2 {
     gap: 4px;
 }
 
-.todo-add,
-.project-delete {
+.create-project,
+.create-todo,
+.delete-project,
+.delete-todo {
     cursor: pointer;
     border: none;
     width: 1.5em;
@@ -67,25 +73,28 @@ h2 {
     border-radius: 4px;
 }
 
-.project .project-name {
+.project-name {
     padding: 5px 0;
     cursor: pointer;
 }
 
-.project .todo-add,
-.project .project-delete {
+.create-todo,
+.delete-project,
+.delete-todo {
     display: none;
 }
 
-.project:hover .todo-add,
-.project:hover .project-delete {
+.project:hover .create-todo,
+.project:hover .delete-project,
+.delete-todo {
     display: initial;
 }
 
-.project:hover .todo-add:hover {
+.project:hover .create-todo:hover {
     background-color: rgb(188, 233, 221);
 }
 
-.project:hover .project-delete:hover {
+.delete-project:hover,
+.delete-todo:hover {
     background-color: rgb(255, 83, 83);
 }

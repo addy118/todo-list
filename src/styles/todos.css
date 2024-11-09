@@ -21,8 +21,10 @@
 }
 
 .toggle,
-.delete,
-.add {
+.delete-project,
+.delete-todo,
+.rename,
+.create-project {
     cursor: pointer;
     border: none;
     width: 1.5em;
@@ -44,11 +46,13 @@
     text-decoration: none;
 }
 
-.delete {
+.delete-project,
+.delete-todo {
     background-color: rgb(255, 37, 37);
     color: white;
 }
 
-.delete:hover {
+.delete-project:hover,
+.delete-todo:hover {
     background-color: rgb(255, 83, 83);
 }

@@ -29,8 +29,8 @@ export class DOM {
 
             const projectName = DOM.createElement('div', ['project-name'], project.name);
             const buttonsContainer = DOM.createElement('div', ['buttons-container']);
-            const addTodoBtn = DOM.createElement('button', ['add', 'todo-add'], '+');
-            const deleteProjectBtn = DOM.createElement('button', ['delete', 'project-delete'], 'x');
+            const addTodoBtn = DOM.createElement('button', ['create-todo'], '+');
+            const deleteProjectBtn = DOM.createElement('button', ['delete-project'], 'x');
 
             DOM.appendChildren(buttonsContainer, [addTodoBtn, deleteProjectBtn]);
             DOM.appendChildren(projectEl, [projectName, buttonsContainer]);
@@ -99,7 +99,7 @@ export class DOM {
 
             addTodoBtn.addEventListener('click', () => {
                 const dialog = document.querySelector('.todo-dialog')
-                const showDialog = document.querySelector('.todo-add');
+                const showDialog = document.querySelector('.create-todo');
                 const cancelDialog = document.querySelector('.todo-cancel');
                 const createTodo = document.querySelector('.todo-form');
 
@@ -166,7 +166,7 @@ export class DOM {
                 ['title', todo.status ? 'checked' : 'unchecked'],
                 todo.title);
 
-            const deleteBtn = DOM.createElement('button', ['delete', 'todo-delete'], 'x');
+            const deleteBtn = DOM.createElement('button', ['delete-todo'], 'x');
 
             DOM.appendChildren(titleContainer, [toggleBtn, titleEl]);
             DOM.appendChildren(todoEl, [titleContainer, deleteBtn]);
