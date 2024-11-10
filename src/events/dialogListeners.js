@@ -1,7 +1,4 @@
-import { User } from './classes/User.js';
-import { Project } from './classes/Project.js'
-import { Todo } from './classes/Todo.js';
-import { DOM } from './classes/DOM.js';
+
 
 export function setupProjectFormListeners() {
     const dialog = document.querySelector('.project-dialog')
@@ -19,12 +16,19 @@ export function setupProjectFormListeners() {
         dialog.close();
     })
 
-    createProject.addEventListener('click', (e) => {
+    createProject.addEventListener('submit', (e) => {
         e.preventDefault();
         e.stopPropagation();
 
-        const projectName = document.getElementById('project-name').value;
-        console.log(projectName);
+        let projectNameInput = document.getElementById('project-name');
+        console.log(projectNameInput.value);
+        projectNameInput.value = '';
+
+        dialog.close();
     })
+}
+
+export function setupTodoFormListeners() {
+
 }
 
