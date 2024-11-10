@@ -1,5 +1,5 @@
 import { DOM } from "./DOM.js";
-import { Project } from "./Project.js";
+import { Project } from "../Project.js";
 
 export class TodoUI {
     // projectwise todos

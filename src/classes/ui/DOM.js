@@ -1,4 +1,4 @@
-import { Todo } from "./Todo.js";
+import { Todo } from "../Todo.js";
 
 export class DOM {
     // basic dom manipulation

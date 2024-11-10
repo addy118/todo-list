@@ -1,10 +1,10 @@
 import { User } from './classes/User.js';
 import { Project } from './classes/Project.js'
 import { Todo } from './classes/Todo.js';
-import { DOM } from './classes/DOM.js';
+import { DOM } from './classes/ui/DOM.js';
 import { setupProjectFormListeners } from './events/dialogListeners.js';
-import { TodoUI } from './classes/TodoUI.js';
-import { ProjectUI } from './classes/ProjectUI.js';
+import { TodoUI } from './classes/ui/TodoUI.js';
+import { ProjectUI } from './classes/ui/ProjectUI.js';
 
 // create dummy todos
 const todo1 = new Todo("Grocery Shopping", "Buy vegetables, fruits, and essentials.", "2024-11-10", "High");
