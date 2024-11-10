@@ -23,6 +23,10 @@ export class Project {
         this.#todos.splice(todoIndex, 1);
     }
 
+    deleteAllTodos() {
+        this.#todos = [];
+    }
+
     toggleTodo(todoId) {
         const todoIndex = this.#todos.findIndex(todo => todo.id == todoId);
         this.#todos[todoIndex].status == false ?
