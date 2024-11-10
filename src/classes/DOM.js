@@ -173,40 +173,41 @@ export class DOM {
             DOM.appendChildren(todosContainer, [todoEl]);
 
             // MODAL FOR TODO DETAILS
-            const todoDialog = DOM.createElement('dialog', ['todo-expand']);
-            const todoDetails = DOM.createElement('div', ['todo-details']);
-            const title = DOM.createElement('div', ['todo-title'], `Title: ${todo.title}`);
-            const desc = DOM.createElement('div', ['todo-desc'], `Description: ${todo.desc}`);
-            const dueDate = DOM.createElement('div', ['todo-due'], `Due: ${todo.dueDate}`);
-            const priority = DOM.createElement('div', ['todo-priority'], `Priority: ${todo.priority}`);
-            const cancelBtn = DOM.createElement('button', ['details-cancel'], 'Cancel');
-            cancelBtn.setAttribute('type', 'button');
+            const expandDialog = document.querySelector('.todo-expand');
+            const expandTitle = document.querySelector('.title-expand');
+            const expandDesc = document.querySelector('.desc-expand');
+            const expandDueDate = document.querySelector('.due-expand');
+            const expandPriority = document.querySelector('.priority-expand');
+            const cancelBtn = document.querySelector('.todo-expand-cancel');
 
-            DOM.appendChildren(todoDetails, [title, desc, dueDate, priority, cancelBtn]);
-            DOM.appendChildren(todoDialog, [todoDetails]);
-            DOM.appendChildren(todoEl, [todoDialog]);
+            expandTitle.innerHTML = `<b>Title:</b> ${todo.title}`;
+            expandDesc.innerHTML = `<b>Description:</b> ${todo.desc}`;
+            expandDueDate.innerHTML = `<b>Due Date:</b> ${todo.due}`;
+            expandPriority.innerHTML = `<b>Priority:</b> ${todo.priority}`;
+
 
             // event listeners
             todoEl.addEventListener('click', () => {
-                todoDialog.showModal();
+                expandDialog.showModal();
             })
 
             cancelBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                todoDialog.close();
+                expandDialog.close();
             })
 
-            toggleBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                todo.status ? todo.status = false : todo.status = true;
-
-                DOM.updateProjectTodos(project);
-            })
 
             deleteBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 const { todoId } = todoEl.dataset;
                 DOM.deleteTodo(project, todoId);
+            })
+
+            toggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                project.toggleTodo(todo.id);
+
+                DOM.updateProjectTodos(project);
             })
         })
     }

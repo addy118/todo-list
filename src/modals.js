@@ -5,7 +5,7 @@ import { DOM } from './classes/DOM.js';
 
 export function setupProjectFormListeners() {
     const dialog = document.querySelector('.project-dialog')
-    const showDialog = document.querySelector('.project-create');
+    const showDialog = document.querySelector('.create-project');
     const cancelDialog = document.querySelector('.project-cancel');
     const createProject = document.querySelector('.project-form');
 

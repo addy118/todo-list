@@ -60,7 +60,7 @@
                 </select>
             </div>
 
-            <button type="submit" class="create-todo create">Create</button>
+            <button type="submit" class="create-todo">Create</button>
             <button type="button" class="todo-cancel">Cancel</button>
         </form>
     </dialog>
@@ -73,13 +73,13 @@
                 <input type="text" name="project-name" id="project-name">
             </div>
 
-            <button type="submit" class="create-project create">Create</button>
+            <button type="submit" class="create-project">Create</button>
             <button type="button" class="project-cancel">Cancel</button>
         </form>
     </dialog>
 
     <!-- username form -->
-    <!-- <dialog class="username-dialog">
+    <dialog class="username-dialog">
         <form action="script.js" class="username-form">
             <div class="form-group">
                 <label for="user-name">Username: </label>
@@ -89,17 +89,18 @@
             <button type="submit" class="rename-user">Rename</button>
             <button type="button" class="user-cancel">Cancel</button>
         </form>
-    </dialog> -->
+    </dialog>
 
-    <!-- todo expanded
+    <!-- todo expanded -->
     <dialog class="todo-expand">
         <div class="todo-details">
-            <div class="title">Title: </div>
-            <div class="desc">Description: </div>
-            <div class="dueDate">Due: </div>
-            <div class="priority">Priority: </div>
+            <div class="title-expand">Title: </div>
+            <div class="desc-expand">Description: </div>
+            <div class="due-expand">Due: </div>
+            <div class="priority-expand">Priority: </div>
         </div>
-    </dialog> -->
+        <button type="button" class="todo-expand-cancel">Cancel</button>
+    </dialog>
 
     <script type="module" src="/src/script.js"></script>
     <script type="module" src="/src/classes/User.js"></script>
