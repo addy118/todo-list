@@ -12,6 +12,7 @@ export class ProjectUI {
         DOM.clearContainer(projectsContainer);
 
         user.projects.forEach(project => {
+            // dynamically render projects in project tabs
             const projectEl = DOM.createElement('div', ['project']);
             projectEl.setAttribute('data-project-id', project.id);
 
@@ -24,8 +25,11 @@ export class ProjectUI {
             DOM.appendChildren(projectEl, [projectName, buttonsContainer]);
             DOM.appendChildren(projectsContainer, [projectEl]);
 
-            // show project's todos, create new todo, delete project
-            // handleProjectEvents(user, project, projectEl, addTodoBtn, deleteProjectBtn);
+            // dynamically create modal for each project
+            const todoDialog = TodoUI.createTodoDialog();
+            DOM.appendChildren(projectEl, [todoDialog]);
+
+            // make the buttons interactive
             handleProjectEvents([user, project], [projectEl, addTodoBtn, deleteProjectBtn]);
         })
     }

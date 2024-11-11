@@ -6,38 +6,33 @@ export function handleProjectEvents(dependencies = [], eventTriggerers = []) {
     const [user, project] = dependencies;
     const [projectEl, addTodoBtn, deleteProjectBtn] = eventTriggerers;
 
+    // show all the todos of the project 
     projectEl.addEventListener('click', (e) => {
         e.stopPropagation();
         TodoUI.renderProjectTodos(project);
     })
 
+    // add new todo to the project
     addTodoBtn.addEventListener('click', (e) => {
         e.stopPropagation();
 
-        // DOM.handleModalListeners(
-        //     '.project-dialog',
-        //     '.create-project',
-        //     '.project-cancel',
-        //     '.project-form',
-        //     [addy],
-        //     (dependencies) => {
-        //         const [user] = dependencies;
+        const modal = document.querySelector('.todo-dialog');
+        modal.close();
 
-        //         // get input 
-        //         let projectNameInput = document.getElementById('project-name');
-        //         const newProject = new Project(projectNameInput.value);
-
-        //         // add project to user
-        //         user.addProject(newProject);
-
-        //         // render the new modified user
-        //         ProjectUI.renderProjectTabs(user);
-
-        //         // clear the previously inputted data
-        //         projectNameInput.value = '';
-        //     })
+        DOM.handleModalListeners(
+            'todo-dialog',
+            'create-todo',
+            'todo-cancel',
+            'todo-form',
+            [user, project],
+            (dependencies) => {
+                console.log('hi')
+                // const [user, project] = dependencies;
+                // console.log(user.name, project.name);
+            })
     })
 
+    // delete the entire project
     deleteProjectBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         // delete all todos of project

@@ -59,4 +59,30 @@ export class TodoUI {
         project.deleteTodo(todoId);
         TodoUI.updateProjectTodos(project);
     }
+
+    static createTodoDialog() {
+        const todoDialog = DOM.createElement('dialog', ['todo-dialog']);
+        const form = DOM.createElement('form', ['todo-form']);
+
+        const titleGroup = DOM.createInput('todo-title', 'Title: ', 'text');
+        const descGroup = DOM.createInput('todo-desc', 'Description: ', 'text');
+        const dueDateGroup = DOM.createInput('todo-due', 'Due Date: ', 'text', 'DD-MM-YYYY');
+        const priorityGroup = DOM.createDropdown('todo-priority', 'Priority: ', [
+            { value: '', text: 'Select' },
+            { value: 'low', text: 'Low' },
+            { value: 'normal', text: 'Normal' },
+            { value: 'high', text: 'High' }
+        ]);
+
+        const submitButton = DOM.createElement('button', ['create-todo'], 'Create');
+        submitButton.setAttribute('type', 'submit');
+        const cancelButton = DOM.createElement('button', ['todo-cancel'], 'Cancel');
+        cancelButton.setAttribute('type', 'button');
+
+        DOM.appendChildren(form, [titleGroup, descGroup, dueDateGroup, priorityGroup, submitButton, cancelButton]);
+        DOM.appendChildren(todoDialog, [form]);
+
+        return todoDialog;
+    }
+
 }
