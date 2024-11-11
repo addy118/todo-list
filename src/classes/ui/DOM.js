@@ -18,10 +18,10 @@ export class DOM {
     }
 
     static handleModalListeners(dialogClass, triggerClass, cancelClass, formClass, dependencies = [], callbackFn) {
-        const dialog = document.querySelector(dialogClass)
-        const showDialog = document.querySelector(triggerClass);
-        const cancelDialog = document.querySelector(cancelClass);
-        const createProject = document.querySelector(formClass);
+        const dialog = document.querySelector('.' + dialogClass);
+        const showDialog = document.querySelector('.' + triggerClass);
+        const cancelDialog = document.querySelector('.' + cancelClass);
+        const createProject = document.querySelector('.' + formClass);
 
         showDialog.addEventListener('click', (e) => {
             e.stopPropagation();

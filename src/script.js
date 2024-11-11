@@ -49,10 +49,10 @@ ProjectUI.renderProjectTabs(addy);
 
 // modal for creating new projects
 DOM.handleModalListeners(
-    '.project-dialog',
-    '.create-project',
-    '.project-cancel',
-    '.project-form',
+    'project-dialog',
+    'create-project',
+    'project-cancel',
+    'project-form',
     [addy],
     (dependencies) => {
         const [user] = dependencies;
