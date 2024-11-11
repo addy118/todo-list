@@ -24,7 +24,8 @@ export class ProjectUI {
             DOM.appendChildren(projectEl, [projectName, buttonsContainer]);
             DOM.appendChildren(projectsContainer, [projectEl]);
 
-            handleProjectEvents(user, project, projectEl);
+            // show project's todos, create new todo, delete project
+            handleProjectEvents(user, project, projectEl, addTodoBtn, deleteProjectBtn);
         })
     }
 
