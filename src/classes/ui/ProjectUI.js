@@ -1,10 +1,13 @@
 import { DOM } from "./DOM.js";
 import { Todo } from "../Todo.js";
 import { TodoUI } from "./TodoUI.js";
+import { handleProjectEvents } from "../../events/projectEvents.js";
 
 export class ProjectUI {
     // userwise project tabs
     static renderProjectTabs(user) {
+        TodoUI.renderProjectTodos(user.projects[0]);
+
         const projectsContainer = document.querySelector('.projects-container');
         DOM.clearContainer(projectsContainer);
 
@@ -21,20 +24,20 @@ export class ProjectUI {
             DOM.appendChildren(projectEl, [projectName, buttonsContainer]);
             DOM.appendChildren(projectsContainer, [projectEl]);
 
+            handleProjectEvents(user, project, projectEl);
+            // projectEl.addEventListener('click', () => {
+            //     TodoUI.renderProjectTodos(project);
+            // })
 
+            // addTodoBtn.addEventListener('click', () => {
+            //     // todo-add modal
+            // })
 
-            projectEl.addEventListener('click', () => {
-                TodoUI.renderProjectTodos(project);
-            })
-
-            addTodoBtn.addEventListener('click', () => {
-                // todo-add modal
-            })
-
-            deleteProjectBtn.addEventListener('click', () => {
-                ProjectUI.deleteProject(user, project.id);
-                project.deleteAllTodos();
-            })
+            // deleteProjectBtn.addEventListener('click', () => {
+            //     project.deleteAllTodos();
+            //     ProjectUI.deleteProject(user, project.id);
+            //     // TodoUI.renderProjectTodos(user.projects[0]);
+            // })
         })
     }
 

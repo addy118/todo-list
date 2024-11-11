@@ -49,5 +49,5 @@ ProjectUI.renderProjectTabs(addy);
 
 
 // setupTodoFormListeners();
-setupProjectFormListeners();
+setupProjectFormListeners(addy);
 // setupUsernameFormListeners();

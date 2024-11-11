@@ -1,6 +1,10 @@
+import { Project } from "../classes/Project.js";
+import { ProjectUI } from "../classes/ui/ProjectUI.js";
+import { TodoUI } from "../classes/ui/TodoUI.js";
+import { User } from "../classes/User.js";
 
 
-export function setupProjectFormListeners() {
+export function setupProjectFormListeners(user) {
     const dialog = document.querySelector('.project-dialog')
     const showDialog = document.querySelector('.create-project');
     const cancelDialog = document.querySelector('.project-cancel');
@@ -21,7 +25,11 @@ export function setupProjectFormListeners() {
         e.stopPropagation();
 
         let projectNameInput = document.getElementById('project-name');
-        console.log(projectNameInput.value);
+        const newProject = new Project(projectNameInput.value);
+        user.addProject(newProject);
+        ProjectUI.renderProjectTabs(user)
+
+        TodoUI.renderProjectTodos(user.projects[-1]);
         projectNameInput.value = '';
 
         dialog.close();

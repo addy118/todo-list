@@ -7,6 +7,8 @@ export class TodoUI {
         const todosContainer = document.querySelector('.todos-container');
         DOM.clearContainer(todosContainer);
 
+        if (!project.todos) return;
+
         project.todos.forEach(todo => {
             const todoEl = DOM.createElement('div', ['todo']);
             todoEl.setAttribute('data-todo-id', todo.id);
@@ -37,7 +39,7 @@ export class TodoUI {
 
                 TodoUI.updateProjectTodos(project);
             })
-        })
+        });
     }
 
     static updateProjectTodos(project) {
