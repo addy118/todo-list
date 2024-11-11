@@ -48,6 +48,26 @@ ProjectUI.renderProjectTabs(addy);
 // console.log(grow.todos);
 
 
-// setupTodoFormListeners();
-setupProjectFormListeners(addy);
-// setupUsernameFormListeners();
+// modal for creating new projects
+DOM.handleModalListeners(
+    '.project-dialog',
+    '.create-project',
+    '.project-cancel',
+    '.project-form',
+    [addy],
+    (dependencies) => {
+        const [user] = dependencies;
+
+        // get input 
+        let projectNameInput = document.getElementById('project-name');
+        const newProject = new Project(projectNameInput.value);
+
+        // add project to user
+        user.addProject(newProject);
+
+        // render the new modified user
+        ProjectUI.renderProjectTabs(user);
+
+        // clear the previously inputted data
+        projectNameInput.value = '';
+    })

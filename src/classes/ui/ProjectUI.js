@@ -6,7 +6,7 @@ import { handleProjectEvents } from "../../events/projectEvents.js";
 export class ProjectUI {
     // userwise project tabs
     static renderProjectTabs(user) {
-        TodoUI.renderProjectTodos(user.projects[0]);
+        TodoUI.renderProjectTodos(user.projects[user.projects.length - 1]);
 
         const projectsContainer = document.querySelector('.projects-container');
         DOM.clearContainer(projectsContainer);
@@ -25,19 +25,6 @@ export class ProjectUI {
             DOM.appendChildren(projectsContainer, [projectEl]);
 
             handleProjectEvents(user, project, projectEl);
-            // projectEl.addEventListener('click', () => {
-            //     TodoUI.renderProjectTodos(project);
-            // })
-
-            // addTodoBtn.addEventListener('click', () => {
-            //     // todo-add modal
-            // })
-
-            // deleteProjectBtn.addEventListener('click', () => {
-            //     project.deleteAllTodos();
-            //     ProjectUI.deleteProject(user, project.id);
-            //     // TodoUI.renderProjectTodos(user.projects[0]);
-            // })
         })
     }
 

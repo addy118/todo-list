@@ -1,10 +1,11 @@
 import { Project } from "../classes/Project.js";
+import { DOM } from "../classes/ui/DOM.js";
 import { ProjectUI } from "../classes/ui/ProjectUI.js";
 import { TodoUI } from "../classes/ui/TodoUI.js";
 import { User } from "../classes/User.js";
 
 
-export function setupProjectFormListeners(user) {
+export function setupProjectFormListeners() {
     const dialog = document.querySelector('.project-dialog')
     const showDialog = document.querySelector('.create-project');
     const cancelDialog = document.querySelector('.project-cancel');

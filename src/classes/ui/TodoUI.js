@@ -7,7 +7,7 @@ export class TodoUI {
         const todosContainer = document.querySelector('.todos-container');
         DOM.clearContainer(todosContainer);
 
-        if (!project.todos) return;
+        if (!project.todos) return 'empty';
 
         project.todos.forEach(todo => {
             const todoEl = DOM.createElement('div', ['todo']);
