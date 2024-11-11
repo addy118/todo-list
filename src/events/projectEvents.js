@@ -2,7 +2,10 @@ import { DOM } from "../classes/ui/DOM.js";
 import { ProjectUI } from "../classes/ui/ProjectUI.js";
 import { TodoUI } from "../classes/ui/TodoUI.js";
 
-export function handleProjectEvents(user, project, projectEl, addTodoBtn, deleteProjectBtn) {
+export function handleProjectEvents(dependencies = [], eventTriggerers = []) {
+    const [user, project] = dependencies;
+    const [projectEl, addTodoBtn, deleteProjectBtn] = eventTriggerers;
+
     projectEl.addEventListener('click', (e) => {
         e.stopPropagation();
         TodoUI.renderProjectTodos(project);
@@ -10,7 +13,29 @@ export function handleProjectEvents(user, project, projectEl, addTodoBtn, delete
 
     addTodoBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        // modal for creating new todo logic
+
+        // DOM.handleModalListeners(
+        //     '.project-dialog',
+        //     '.create-project',
+        //     '.project-cancel',
+        //     '.project-form',
+        //     [addy],
+        //     (dependencies) => {
+        //         const [user] = dependencies;
+
+        //         // get input 
+        //         let projectNameInput = document.getElementById('project-name');
+        //         const newProject = new Project(projectNameInput.value);
+
+        //         // add project to user
+        //         user.addProject(newProject);
+
+        //         // render the new modified user
+        //         ProjectUI.renderProjectTabs(user);
+
+        //         // clear the previously inputted data
+        //         projectNameInput.value = '';
+        //     })
     })
 
     deleteProjectBtn.addEventListener('click', (e) => {
