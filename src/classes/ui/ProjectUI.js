@@ -44,4 +44,23 @@ export class ProjectUI {
         user.deleteProject(projectId);
         ProjectUI.updateProjectTabs(user);
     }
+
+    static createProjectDialog() {
+        const projectDialog = DOM.createElement('dialog', ['project-dialog']);
+        const form = DOM.createElement('form', ['project-form']);
+        form.setAttribute('action', 'script.js');
+
+        const projectNameInput = DOM.createInput('project-name', 'Name: ', 'text');
+
+        const submitButton = DOM.createElement('button', ['create-project'], 'Create');
+        submitButton.setAttribute('type', 'submit');
+
+        const cancelButton = DOM.createElement('button', ['project-cancel'], 'Cancel');
+        cancelButton.setAttribute('type', 'button');
+
+        DOM.appendChildren(form, [projectNameInput, submitButton, cancelButton]);
+        DOM.appendChildren(projectDialog, form);
+
+        return projectDialog;
+    }
 }

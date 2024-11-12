@@ -16,6 +16,9 @@ const addy = new User('Addy');
 const username = document.querySelector('.username>h2');
 // set username of the user
 username.textContent = addy.name;
+// create modal for adding new projects
+const projectDialog = ProjectUI.createProjectDialog();
+document.body.appendChild(projectDialog);
 
 // assign the general project of the user to variable
 const general = addy.projects[0];
