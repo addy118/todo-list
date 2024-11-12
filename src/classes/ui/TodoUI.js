@@ -40,6 +40,16 @@ export class TodoUI {
             DOM.appendChildren(todoEl, [titleContainer, deleteBtn]);
             DOM.appendChildren(todosContainer, [todoEl]);
 
+            const todoExpandDialog = TodoUI.createTodoExpandDialog(todo);
+            DOM.appendChildren(todoEl, [todoExpandDialog]);
+
+            // enable view button for each todo
+            todoEl.addEventListener('click', (e) => {
+                e.stopPropagation();
+
+                console.log('view todo ' + todo.title);
+                todoExpandDialog.showModal();
+            })
 
             // enable toggle button for each todo
             toggleBtn.addEventListener('click', (e) => {
@@ -125,5 +135,43 @@ export class TodoUI {
         });
 
         return todoDialog;
+    }
+
+    static createTodoExpandDialog(todo) {
+        const todoExpandDialog = DOM.createElement('dialog', ['todo-expand']);
+        const todoDetails = DOM.createElement('div', ['todo-details']);
+
+        const titleExpand = DOM.createElement('div', ['title-expand']);
+        const titleLabel = DOM.createElement('b', [], 'Title: ');
+        const titleContent = DOM.createElement('span', [], todo.title);
+        DOM.appendChildren(titleExpand, [titleLabel, titleContent]);
+
+        const descExpand = DOM.createElement('div', ['desc-expand']);
+        const descLabel = DOM.createElement('b', [], 'Description: ');
+        const descContent = DOM.createElement('span', [], todo.desc);
+        DOM.appendChildren(descExpand, [descLabel, descContent]);
+
+        const dueExpand = DOM.createElement('div', ['due-expand']);
+        const dueLabel = DOM.createElement('b', [], 'Due: ');
+        const dueContent = DOM.createElement('span', [], todo.dueDate);
+        DOM.appendChildren(dueExpand, [dueLabel, dueContent]);
+
+        const priorityExpand = DOM.createElement('div', ['priority-expand']);
+        const priorityLabel = DOM.createElement('b', [], 'Priority: ');
+        const priorityContent = DOM.createElement('span', [], todo.priority);
+        DOM.appendChildren(priorityExpand, [priorityLabel, priorityContent]);
+
+        const cancelButton = DOM.createElement('button', ['todo-expand-cancel'], 'Cancel');
+        cancelButton.setAttribute('type', 'button');
+
+        DOM.appendChildren(todoDetails, [titleExpand, descExpand, dueExpand, priorityExpand]);
+        DOM.appendChildren(todoExpandDialog, [todoDetails, cancelButton]);
+
+        cancelButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            todoExpandDialog.close();
+        })
+
+        return todoExpandDialog;
     }
 }
