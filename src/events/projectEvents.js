@@ -4,32 +4,12 @@ import { TodoUI } from "../classes/ui/TodoUI.js";
 
 export function handleProjectEvents(dependencies = [], eventTriggerers = []) {
     const [user, project] = dependencies;
-    const [projectEl, addTodoBtn, deleteProjectBtn] = eventTriggerers;
+    const [projectEl, deleteProjectBtn] = eventTriggerers;
 
     // show all the todos of the project 
     projectEl.addEventListener('click', (e) => {
         e.stopPropagation();
         TodoUI.renderProjectTodos(project);
-    })
-
-    // add new todo to the project
-    addTodoBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-
-        const modal = document.querySelector('.todo-dialog');
-        modal.close();
-
-        DOM.handleModalListeners(
-            'todo-dialog',
-            'create-todo',
-            'todo-cancel',
-            'todo-form',
-            [user, project],
-            (dependencies) => {
-                console.log('hi')
-                // const [user, project] = dependencies;
-                // console.log(user.name, project.name);
-            })
     })
 
     // delete the entire project

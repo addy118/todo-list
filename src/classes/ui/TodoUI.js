@@ -1,5 +1,6 @@
 import { DOM } from "./DOM.js";
 import { Project } from "../Project.js";
+import { Todo } from "../Todo.js";
 
 export class TodoUI {
     // projectwise todos
@@ -60,7 +61,7 @@ export class TodoUI {
         TodoUI.updateProjectTodos(project);
     }
 
-    static createTodoDialog() {
+    static createTodoDialog(project) {
         const todoDialog = DOM.createElement('dialog', ['todo-dialog']);
         const form = DOM.createElement('form', ['todo-form']);
 
@@ -74,6 +75,12 @@ export class TodoUI {
             { value: 'high', text: 'High' }
         ]);
 
+        // setting default values for testing
+        titleGroup.querySelector('input').value = 'Default Title';
+        descGroup.querySelector('input').value = 'Default Description';
+        dueDateGroup.querySelector('input').value = '01-01-2025';
+        priorityGroup.querySelector('select').value = 'normal';
+
         const submitButton = DOM.createElement('button', ['create-todo'], 'Create');
         submitButton.setAttribute('type', 'submit');
         const cancelButton = DOM.createElement('button', ['todo-cancel'], 'Cancel');
@@ -82,7 +89,29 @@ export class TodoUI {
         DOM.appendChildren(form, [titleGroup, descGroup, dueDateGroup, priorityGroup, submitButton, cancelButton]);
         DOM.appendChildren(todoDialog, [form]);
 
+        // modal logic
+        cancelButton.addEventListener('click', () => todoDialog.close());
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            console.log('trigger count');
+
+            const title = titleGroup.querySelector('input').value;
+            const desc = descGroup.querySelector('input').value;
+            const dueDate = dueDateGroup.querySelector('input').value;
+            const priority = priorityGroup.querySelector('select').value;
+
+            const newTodo = new Todo(title, desc, dueDate, priority);
+            project.addTodo(newTodo);
+            this.renderProjectTodos(project);
+
+            console.log(project.todos);
+
+            todoDialog.close();
+        });
+
+
         return todoDialog;
     }
-
 }

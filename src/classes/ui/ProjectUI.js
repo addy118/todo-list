@@ -26,11 +26,16 @@ export class ProjectUI {
             DOM.appendChildren(projectsContainer, [projectEl]);
 
             // dynamically create modal for each project
-            const todoDialog = TodoUI.createTodoDialog();
+            const todoDialog = TodoUI.createTodoDialog(project);
             DOM.appendChildren(projectEl, [todoDialog]);
 
+            addTodoBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                todoDialog.showModal();
+            });
+
             // make the buttons interactive
-            handleProjectEvents([user, project], [projectEl, addTodoBtn, deleteProjectBtn]);
+            handleProjectEvents([user, project], [projectEl, deleteProjectBtn]);
         })
     }
 
