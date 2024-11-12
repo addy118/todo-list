@@ -1,6 +1,7 @@
 import { DOM } from "./DOM.js";
 import { Project } from "../Project.js";
 import { Todo } from "../Todo.js";
+import { ProjectUI } from "./ProjectUI.js";
 
 export class TodoUI {
     // projectwise todos
@@ -40,12 +41,22 @@ export class TodoUI {
             DOM.appendChildren(todosContainer, [todoEl]);
 
 
-            // todo button with event listener for each todo
+            // enable toggle button for each todo
             toggleBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 project.toggleTodo(todo.id);
 
                 TodoUI.updateProjectTodos(project);
+            })
+
+            // enable delete todo button for each todo
+            deleteBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                console.log('triggered delete todo on ' + todo.title);
+
+                project.deleteTodo(todo.id)
+                console.log(project.todos);
+                TodoUI.renderProjectTodos(project);
             })
         });
     }
@@ -75,23 +86,25 @@ export class TodoUI {
             { value: 'high', text: 'High' }
         ]);
 
+        const submitButton = DOM.createElement('button', ['create-todo'], 'Create');
+        submitButton.setAttribute('type', 'submit');
+        const cancelButton = DOM.createElement('button', ['todo-cancel'], 'Cancel');
+        cancelButton.setAttribute('type', 'button');
+
         // setting default values for testing
         titleGroup.querySelector('input').value = 'Default Title';
         descGroup.querySelector('input').value = 'Default Description';
         dueDateGroup.querySelector('input').value = '01-01-2025';
         priorityGroup.querySelector('select').value = 'normal';
 
-        const submitButton = DOM.createElement('button', ['create-todo'], 'Create');
-        submitButton.setAttribute('type', 'submit');
-        const cancelButton = DOM.createElement('button', ['todo-cancel'], 'Cancel');
-        cancelButton.setAttribute('type', 'button');
-
         DOM.appendChildren(form, [titleGroup, descGroup, dueDateGroup, priorityGroup, submitButton, cancelButton]);
         DOM.appendChildren(todoDialog, [form]);
 
-        // modal logic
+
+        // MODAL LOGIC
         cancelButton.addEventListener('click', () => todoDialog.close());
 
+        // enable submit new todo button for each todo
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
@@ -110,7 +123,6 @@ export class TodoUI {
 
             todoDialog.close();
         });
-
 
         return todoDialog;
     }

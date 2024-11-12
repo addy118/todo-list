@@ -29,12 +29,13 @@ export class ProjectUI {
             const todoDialog = TodoUI.createTodoDialog(project);
             DOM.appendChildren(projectEl, [todoDialog]);
 
+            // show modal for adding new todo on project
             addTodoBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 todoDialog.showModal();
             });
 
-            // make the buttons interactive
+            // enable view project todos & new project buttons
             handleProjectEvents([user, project], [projectEl, deleteProjectBtn]);
         })
     }
