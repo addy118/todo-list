@@ -1,3 +1,3 @@
 import { UserUI } from './classes/ui/UserUI.js';
 
-UserUI.renderUser();
+UserUI.setupUser();

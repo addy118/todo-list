@@ -7,6 +7,10 @@ export class User {
         this.name = name;
     }
 
+    renameUser(name) {
+        this.name = name;
+    }
+
     get projects() {
         return this.#projects;
     }
