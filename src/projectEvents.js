@@ -1,6 +1,6 @@
-import { DOM } from "../classes/ui/DOM.js";
-import { ProjectUI } from "../classes/ui/ProjectUI.js";
-import { TodoUI } from "../classes/ui/TodoUI.js";
+import { DOM } from "./classes/ui/DOM.js";
+import { ProjectUI } from "./classes/ui/ProjectUI.js";
+import { TodoUI } from "./classes/ui/TodoUI.js";
 
 export function handleProjectEvents(dependencies = [], eventTriggerers = []) {
     const [user, project] = dependencies;

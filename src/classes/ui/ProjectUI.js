@@ -1,7 +1,7 @@
 import { DOM } from "./DOM.js";
 import { Todo } from "../Todo.js";
 import { TodoUI } from "./TodoUI.js";
-import { handleProjectEvents } from "../../events/projectEvents.js";
+import { handleProjectEvents } from "../../projectEvents.js";
 
 export class ProjectUI {
     // userwise project tabs
