@@ -46,7 +46,7 @@ export class UserUI {
 
         DOM.handleModalListeners(
             'project-dialog',
-            'create-project',
+            'add-project',
             'project-cancel',
             'project-form',
             [defaultUser],
@@ -93,14 +93,30 @@ export class UserUI {
 
         const usernameInput = DOM.createInput('user-name', 'Username: ', 'text');
 
+        const modalButtons = DOM.createElement('div', ['modal-buttons']);
         const submitButton = DOM.createElement('button', ['rename-user'], 'Create');
         submitButton.setAttribute('type', 'submit');
-
         const cancelButton = DOM.createElement('button', ['rename-cancel'], 'Cancel');
         cancelButton.setAttribute('type', 'button');
+        DOM.appendChildren(modalButtons, [submitButton, cancelButton]);
 
-        DOM.appendChildren(form, [usernameInput, submitButton, cancelButton]);
+        DOM.appendChildren(form, [usernameInput, modalButtons]);
         DOM.appendChildren(usernameDialog, form);
+
+        // to close modal on clicking outside of it
+        usernameDialog.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const rect = usernameDialog.getBoundingClientRect();
+
+            if (
+                e.clientX < rect.left ||
+                e.clientX > rect.right ||
+                e.clientY < rect.top ||
+                e.clientY > rect.bottom
+            ) {
+                usernameDialog.close();
+            }
+        });
 
         return usernameDialog;
     }

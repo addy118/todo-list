@@ -29,12 +29,12 @@ export class TodoUI {
             const toggleBtn = DOM.createElement(
                 'button',
                 ['toggle'],
-                todo.status ? '\u25cf' : '\u00a0'
+                todo.status ? '\u2714' : '\u00a0'
             );
             const titleEl = DOM.createElement('div',
                 ['title', todo.status ? 'checked' : 'unchecked'],
                 todo.title);
-            const deleteBtn = DOM.createElement('button', ['delete-todo'], 'x');
+            const deleteBtn = DOM.createElement('button', ['delete-todo'], '\u00d7');
 
             DOM.appendChildren(titleContainer, [toggleBtn, titleEl]);
             DOM.appendChildren(todoEl, [titleContainer, deleteBtn]);
@@ -96,10 +96,12 @@ export class TodoUI {
             { value: 'high', text: 'High' }
         ]);
 
+        const modalButtons = DOM.createElement('div', ['modal-buttons']);
         const submitButton = DOM.createElement('button', ['create-todo'], 'Create');
         submitButton.setAttribute('type', 'submit');
         const cancelButton = DOM.createElement('button', ['todo-cancel'], 'Cancel');
         cancelButton.setAttribute('type', 'button');
+        DOM.appendChildren(modalButtons, [submitButton, cancelButton]);
 
         // setting default values for testing
         titleGroup.querySelector('input').value = 'Default Title';
@@ -107,7 +109,7 @@ export class TodoUI {
         dueDateGroup.querySelector('input').value = '01-01-2025';
         priorityGroup.querySelector('select').value = 'normal';
 
-        DOM.appendChildren(form, [titleGroup, descGroup, dueDateGroup, priorityGroup, submitButton, cancelButton]);
+        DOM.appendChildren(form, [titleGroup, descGroup, dueDateGroup, priorityGroup, modalButtons]);
         DOM.appendChildren(todoDialog, [form]);
 
 
@@ -117,6 +119,7 @@ export class TodoUI {
         // enable submit new todo button for each todo
         form.addEventListener('submit', (e) => {
             e.preventDefault();
+            e.stopPropagation();
 
             console.log('trigger count');
 
@@ -132,6 +135,21 @@ export class TodoUI {
             console.log(project.todos);
 
             todoDialog.close();
+        });
+
+        // to close modal on clicking outside of it
+        todoDialog.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const rect = todoDialog.getBoundingClientRect();
+
+            if (
+                e.clientX < rect.left ||
+                e.clientX > rect.right ||
+                e.clientY < rect.top ||
+                e.clientY > rect.bottom
+            ) {
+                todoDialog.close();
+            }
         });
 
         return todoDialog;
@@ -171,6 +189,21 @@ export class TodoUI {
             e.stopPropagation();
             todoExpandDialog.close();
         })
+
+        // to close modal on clicking outside of it
+        todoExpandDialog.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const rect = todoExpandDialog.getBoundingClientRect();
+
+            if (
+                e.clientX < rect.left ||
+                e.clientX > rect.right ||
+                e.clientY < rect.top ||
+                e.clientY > rect.bottom
+            ) {
+                todoExpandDialog.close();
+            }
+        });
 
         return todoExpandDialog;
     }

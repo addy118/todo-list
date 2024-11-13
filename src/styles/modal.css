@@ -1,14 +1,18 @@
 dialog {
+    background-color: var(--bg);
+    color: var(--text);
     border: none;
     outline: none;
-    background-color: rgb(231, 255, 253);
-    color: darkcyan;
-    border-radius: 16px;
-    padding: 32px;
+    border-radius: 6px;
+    padding: 18px;
+}
+
+.todo-expand {
+    width: 40%;
 }
 
 dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: #00000099;
 }
 
 form {
@@ -25,43 +29,74 @@ form {
 
 input,
 select {
-    padding: 4px;
-    color: darkcyan;
-    border: thin solid darkcyan;
     background-color: white;
+    color: var(--text);
+    border: thin solid var(--text);
+    border-radius: 4px;
+    padding: 4px;
 }
+
+/* 
+input#user-name {
+    background-color: #fff;
+} */
 
 input:focus,
 select:focus {
     outline: none;
+    background-color: white;
+    color: var(--text);
 }
 
 input::placeholder {
-    color: rgb(132, 167, 155);
+    color: #C68B59;
 }
 
 dialog button {
+    background-color: var(--brown);
+    color: white;
+    flex: 1;
     border: none;
     outline: none;
-    background-color: darkcyan;
-    color: white;
     font-size: 18px;
     padding: 6px;
-    margin: 18px auto 0px auto;
-    border-radius: 8px;
+    border-radius: 4px;
     cursor: pointer;
 }
 
 dialog button:hover {
-    background-color: rgba(0, 139, 139, 0.9);
+    background-color: var(--hover-brown);
 }
 
 dialog button:active {
-    background-color: rgba(0, 139, 139, 0.7);
+    background-color: var(--active-brown);
 }
 
 .todo-details {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.title-expand,
+.desc-expand,
+.due-expand,
+.priority-expand {
+    background-color: #0000000c;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    border-radius: 4px;
+}
+
+.todo-expand>button {
+    margin-top: 14px;
+    min-width: 100%;
 }

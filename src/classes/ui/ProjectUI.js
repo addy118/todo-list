@@ -18,8 +18,8 @@ export class ProjectUI {
 
             const projectName = DOM.createElement('div', ['project-name'], project.name);
             const buttonsContainer = DOM.createElement('div', ['buttons-container']);
-            const addTodoBtn = DOM.createElement('button', ['create-todo'], '+');
-            const deleteProjectBtn = DOM.createElement('button', ['delete-project'], 'x');
+            const addTodoBtn = DOM.createElement('button', ['add-todo'], '+');
+            const deleteProjectBtn = DOM.createElement('button', ['delete-project'], '\u00d7');
 
             DOM.appendChildren(buttonsContainer, [addTodoBtn, deleteProjectBtn]);
             DOM.appendChildren(projectEl, [projectName, buttonsContainer]);
@@ -58,14 +58,30 @@ export class ProjectUI {
 
         const projectNameInput = DOM.createInput('project-name', 'Name: ', 'text');
 
+        const modalButtons = DOM.createElement('div', ['modal-buttons']);
         const submitButton = DOM.createElement('button', ['create-project'], 'Create');
         submitButton.setAttribute('type', 'submit');
-
         const cancelButton = DOM.createElement('button', ['project-cancel'], 'Cancel');
         cancelButton.setAttribute('type', 'button');
+        DOM.appendChildren(modalButtons, [submitButton, cancelButton]);
 
-        DOM.appendChildren(form, [projectNameInput, submitButton, cancelButton]);
+        DOM.appendChildren(form, [projectNameInput, modalButtons]);
         DOM.appendChildren(projectDialog, form);
+
+        // to close modal on clicking outside of it
+        projectDialog.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const rect = projectDialog.getBoundingClientRect();
+
+            if (
+                e.clientX < rect.left ||
+                e.clientX > rect.right ||
+                e.clientY < rect.top ||
+                e.clientY > rect.bottom
+            ) {
+                projectDialog.close();
+            }
+        });
 
         return projectDialog;
     }

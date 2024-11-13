@@ -1,6 +1,6 @@
 .todos-container {
-    background-color: rgb(231, 255, 253);
-    flex: 3;
+    background-color: var(--bg);
+    flex: 4;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -8,9 +8,10 @@
 }
 
 .todo {
+    background-color: #0000000c;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    background-color: rgba(0, 0, 0, 0.05);
     border-radius: 6px;
 }
 
@@ -20,22 +21,9 @@
     gap: 10px;
 }
 
-.toggle,
-.delete-project,
-.delete-todo,
-.rename,
-.create-project {
-    cursor: pointer;
-    border: none;
-    width: 1.5em;
-    height: 1.5em;
-    text-align: center;
-    border-radius: 4px;
-}
-
 .toggle {
     background-color: white;
-    color: darkcyan;
+    color: var(--chocolate);
 }
 
 .checked {
@@ -46,13 +34,34 @@
     text-decoration: none;
 }
 
-.delete-project,
+/* .toggle,
+.delete-todo,
+.rename,
+.add-todo,
+.add-project,
+.delete-project {
+    cursor: pointer;
+    border: none;
+    width: 1.5em;
+    height: 1.5em;
+    text-align: center;
+    border-radius: 4px;
+} */
+
+/* .delete-project, */
 .delete-todo {
-    background-color: rgb(255, 37, 37);
+    background-color: var(--red);
     color: white;
 }
 
-.delete-project:hover,
+
+
+/* .delete-project:hover, */
 .delete-todo:hover {
-    background-color: rgb(255, 83, 83);
+    background-color: var(--hover-red);
+}
+
+/* .delete-project:active, */
+.delete-todo:active {
+    background-color: var(--click-red);
 }
