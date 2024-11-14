@@ -9,10 +9,33 @@ export class UserUI {
         // create default user
         const defaultUser = new User('User');
 
-        // set username of the user
+        // render username of the user
         const username = document.querySelector('.username>h2');
         username.textContent = defaultUser.name;
 
+
+        //TEST PROJECTS & TODOS 
+        // assign the general project of the user to variable
+        const general = defaultUser.projects[0];
+
+        general.addTodo(todos[0]);
+        general.addTodo(todos[1]);
+
+        const grow = new Project('Grow');
+        defaultUser.addProject(grow);
+        grow.addTodo(todos[4]);
+        grow.addTodo(todos[5]);
+
+        general.toggleTodo(todos[1].id);
+        grow.toggleTodo(todos[4].id)
+
+        // initial render of projects & their todos
+        ProjectUI.renderProjectTabs(defaultUser);
+
+        return defaultUser;
+    }
+
+    static setupUserModals(user) {
         // create and enable modal for renaming the user
         const usernameDialog = UserUI.createUsernameDialog();
         document.body.appendChild(usernameDialog);
@@ -22,7 +45,7 @@ export class UserUI {
             'rename',
             'rename-cancel',
             'username-form',
-            [defaultUser],
+            [user],
             (dependencies) => {
                 const [user] = dependencies;
 
@@ -49,7 +72,7 @@ export class UserUI {
             'add-project',
             'project-cancel',
             'project-form',
-            [defaultUser],
+            [user],
             (dependencies) => {
                 const [user] = dependencies;
 
@@ -66,26 +89,6 @@ export class UserUI {
                 // clear the previously inputted data
                 projectNameInput.value = '';
             })
-
-        // assign the general project of the user to variable
-        const general = defaultUser.projects[0];
-
-        //TEST PROJECTS & TODOS 
-        general.addTodo(todos[0]);
-        general.addTodo(todos[1]);
-
-        const grow = new Project('Grow');
-        defaultUser.addProject(grow);
-        grow.addTodo(todos[4]);
-        grow.addTodo(todos[5]);
-
-        general.toggleTodo(todos[1].id);
-        grow.toggleTodo(todos[4].id)
-
-        // initial render of projects & their todos
-        ProjectUI.renderProjectTabs(defaultUser);
-
-        return defaultUser;
     }
 
     static createUsernameDialog() {

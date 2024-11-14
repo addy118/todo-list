@@ -48,6 +48,7 @@ export class User {
             const localUser = new User(userName);
             localUser.projects = localProjects;
 
+            console.log('loaded from local storage')
             return localUser;
         }
 
