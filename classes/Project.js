@@ -1,3 +1,5 @@
+import { Todo } from "./Todo.js";
+
 export class Project {
     #id = Math.floor(Date.now() * Math.random())
     #todos = [];
@@ -10,8 +12,16 @@ export class Project {
         return this.#id;
     }
 
+    set id(localId) {
+        this.#id = localId;
+    }
+
     get todos() {
         return this.#todos;
+    }
+
+    set todos(localTodos) {
+        this.#todos = localTodos;
     }
 
     addTodo(todo) {
@@ -32,5 +42,21 @@ export class Project {
         this.#todos[todoIndex].status == false ?
             this.#todos[todoIndex].status = true :
             this.#todos[todoIndex].status = false;
+    }
+
+    serialize() {
+        return {
+            id: this.#id,
+            name: this.name,
+            todos: this.#todos.map(todo => todo.serialize()),
+        }
+    }
+
+    static deserialize(localProjectObj) {
+        const projectInstance = new Project(localProjectObj.name);
+        projectInstance.id = localProjectObj.id;
+        projectInstance.todos = localProjectObj.todos.map(localTodoObj => Todo.deserialize(localTodoObj));
+
+        return projectInstance;
     }
 }
