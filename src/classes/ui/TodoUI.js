@@ -1,7 +1,7 @@
 import { DOM } from "./DOM.js";
 import { Todo } from "../Todo.js";
-import { format } from "../../../node_modules/date-fns/format.js";
-// import { format } from "../../node_modules/date-fns/format.js";
+// import { format } from "../../../node_modules/date-fns/format.js";
+import { format } from 'https://cdn.jsdelivr.net/npm/date-fns@2.28.0/esm/index.js';
 
 export class TodoUI {
     // projectwise todos
