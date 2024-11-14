@@ -1,5 +1,4 @@
 import { DOM } from "./DOM.js";
-import { Todo } from "../Todo.js";
 import { TodoUI } from "./TodoUI.js";
 import { handleProjectEvents } from "../../projectEvents.js";
 

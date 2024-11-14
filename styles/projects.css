@@ -61,9 +61,14 @@ h2 {
     cursor: pointer;
 }
 
+.project:hover,
+.todo:hover {
+    background-color: #00000015;
+}
+
 .project:active,
 .todo:active {
-    background-color: #00000015;
+    background-color: #00000020;
 }
 
 .add-todo,

@@ -1,4 +1,3 @@
-import { DOM } from "./classes/ui/DOM.js";
 import { ProjectUI } from "./classes/ui/ProjectUI.js";
 import { TodoUI } from "./classes/ui/TodoUI.js";
 
