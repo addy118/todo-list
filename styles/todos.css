@@ -31,7 +31,8 @@
     gap: 10px;
 }
 
-.due-date {
+.due-date,
+.due-time {
     display: flex;
     align-items: center;
     justify-content: center;

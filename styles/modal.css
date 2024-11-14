@@ -86,7 +86,8 @@ dialog button:active {
 
 .title-expand,
 .desc-expand,
-.due-expand,
+.due-date-expand,
+.due-time-expand,
 .priority-expand {
     background-color: #0000000c;
     padding: 8px;

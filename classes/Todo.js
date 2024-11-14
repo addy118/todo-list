@@ -2,10 +2,11 @@ export class Todo {
     #id = Math.floor(Date.now() * Math.random());
     status = false;
 
-    constructor(title, desc, dueDate, priority) {
+    constructor(title, desc, dueDate, dueTime, priority) {
         this.title = title;
         this.desc = desc;
         this.dueDate = dueDate;
+        this.dueTime = dueTime;
         this.priority = priority;
     }
 
@@ -24,6 +25,7 @@ export class Todo {
             title: this.title,
             desc: this.desc,
             dueDate: this.dueDate,
+            dueTime: this.dueTime,
             priority: this.priority,
         }
     }
@@ -32,7 +34,8 @@ export class Todo {
         const todo = new Todo(localTodoObj.title,
             localTodoObj.desc,
             localTodoObj.dueDate,
-            localTodoObj.priority
+            localTodoObj.dueTime,
+            localTodoObj.priority,
         );
         todo.id = localTodoObj.id;
         todo.status = localTodoObj.status;
