@@ -4,6 +4,9 @@
   "description": "A feature-rich task listing application built with Vanilla JavaScript, following object-oriented programming principles and separation of concerns for a clean, maintainable codebase. List your sub-steps to complete your project and get started on it!",
   "main": "index.js",
   "scripts": {
+    "start": "webpack serve",
+    "build": "webpack",
+    "deploy": "git subtree push --prefix dist origin gh-pages",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

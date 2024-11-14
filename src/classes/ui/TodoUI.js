@@ -11,13 +11,13 @@ export class TodoUI {
 
         // handle empty users
         if (!project) {
-            console.log('no projects');
+            // console.log('no projects');
             return;
         }
 
         // handle rendering empty projects
         if (!project.todos.length) {
-            console.log('no todos');
+            // console.log('no todos');
             return;
         };
 
@@ -49,7 +49,7 @@ export class TodoUI {
                 todo.title);
 
             // formatting the date to render
-            console.log(todo.dueDate, new Date(todo.dueDate));
+            // console.log(todo.dueDate, new Date(todo.dueDate));
             const dueDateObj = new Date(todo.dueDate);
             const dueDate = format(new Date(dueDateObj), "dd-MM-yyyy")
             const todayDate = format(new Date(), "dd-MM-yyyy");
@@ -104,7 +104,7 @@ export class TodoUI {
             todoEl.addEventListener('click', (e) => {
                 e.stopPropagation();
 
-                console.log('view todo ' + todo.title);
+                // console.log('view todo ' + todo.title);
                 todoExpandDialog.showModal();
             })
 
@@ -120,10 +120,10 @@ export class TodoUI {
             // enable delete todo button for each todo
             deleteBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                console.log('triggered delete todo on ' + todo.title);
+                // console.log('triggered delete todo on ' + todo.title);
 
                 project.deleteTodo(todo.id)
-                console.log(project.todos);
+                // console.log(project.todos);
                 TodoUI.renderProjectTodos(project);
             })
         });
@@ -180,7 +180,7 @@ export class TodoUI {
             e.preventDefault();
             e.stopPropagation();
 
-            console.log('trigger count');
+            // console.log('trigger count');
 
             const title = titleGroup.querySelector('input').value;
             const desc = descGroup.querySelector('input').value;

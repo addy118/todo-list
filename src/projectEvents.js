@@ -19,6 +19,6 @@ export function handleProjectEvents(dependencies = [], eventTriggerers = []) {
 
         // remove project tab from panel
         ProjectUI.deleteProject(user, project.id);
-        console.log(user.projects.map(project => project.name));
+        // console.log(user.projects.map(project => project.name));
     })
 }

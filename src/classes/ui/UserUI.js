@@ -12,21 +12,6 @@ export class UserUI {
         // set up modals for renaming user and creating projects
         UserUI.setupUserModals(defaultUser);
 
-        //TEST PROJECTS & TODOS 
-        // assign the general project of the user to variable
-        // const general = defaultUser.projects[0];
-
-        // general.addTodo(todos[0]);
-        // general.addTodo(todos[1]);
-
-        // const grow = new Project('Grow');
-        // defaultUser.addProject(grow);
-        // grow.addTodo(todos[4]);
-        // grow.addTodo(todos[5]);
-
-        // general.toggleTodo(todos[1].id);
-        // grow.toggleTodo(todos[4].id)
-
         Local.save(defaultUser);
 
         // initial render of projects & their todos
@@ -52,12 +37,12 @@ export class UserUI {
                 // get input 
                 let newUsernameInput = document.getElementById('user-name');
 
-                console.log('triggered rename')
+                // console.log('triggered rename')
 
                 user.renameUser(newUsernameInput.value);
                 UserUI.updateUsername(user);
 
-                console.log(user.name);
+                // console.log(user.name);
 
                 // clear the previously inputted data
                 newUsernameInput.value = '';
