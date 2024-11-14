@@ -90,9 +90,9 @@ export class TodoUI {
         const dueDateGroup = DOM.createInput('todo-due', 'Due Date: ', 'text', 'DD-MM-YYYY');
         const priorityGroup = DOM.createDropdown('todo-priority', 'Priority: ', [
             { value: '', text: 'Select' },
-            { value: 'low', text: 'Low' },
-            { value: 'normal', text: 'Normal' },
-            { value: 'high', text: 'High' }
+            { value: 'Low', text: 'Low' },
+            { value: 'Normal', text: 'Normal' },
+            { value: 'High', text: 'High' }
         ]);
 
         const modalButtons = DOM.createElement('div', ['modal-buttons']);
@@ -103,10 +103,10 @@ export class TodoUI {
         DOM.appendChildren(modalButtons, [submitButton, cancelButton]);
 
         // setting default values for testing
-        titleGroup.querySelector('input').value = 'Default Title';
-        descGroup.querySelector('input').value = 'Default Description';
-        dueDateGroup.querySelector('input').value = '01-01-2025';
-        priorityGroup.querySelector('select').value = 'normal';
+        // titleGroup.querySelector('input').value = '';
+        descGroup.querySelector('input').value = 'None';
+        dueDateGroup.querySelector('input').value = '14-11-2024';
+        priorityGroup.querySelector('select').value = 'Normal';
 
         DOM.appendChildren(form, [titleGroup, descGroup, dueDateGroup, priorityGroup, modalButtons]);
         DOM.appendChildren(todoDialog, [form]);
@@ -132,6 +132,13 @@ export class TodoUI {
             this.renderProjectTodos(project);
 
             console.log(project.todos);
+
+
+            // clear the input fields
+            titleGroup.querySelector('input').value = '';
+            // descGroup.querySelector('input').value = '';
+            dueDateGroup.querySelector('input').value = '14-11-2024';
+            // priorityGroup.querySelector('select').value = '';
 
             todoDialog.close();
         });

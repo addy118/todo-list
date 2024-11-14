@@ -1,7 +1,5 @@
-import { User } from "../User.js";
 import { Project } from "../Project.js";
 import { ProjectUI } from "./ProjectUI.js";
-import { todos } from "../../todos.js";
 import { DOM } from "./DOM.js";
 import { Local } from "../LocalStorage.js";
 
