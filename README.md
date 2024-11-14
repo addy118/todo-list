@@ -1,15 +1,15 @@
-# To-Do List Web-App
+# Task Flow Web-App
 
-A feature-rich to-do list application built with Vanilla JavaScript, following object-oriented programming principles and separation of concerns for a clean, maintainable codebase.
+A feature-rich task listing application built with Vanilla JavaScript, following object-oriented programming principles and separation of concerns for a clean, maintainable codebase. List your sub-steps to complete your project and get started on it!
 
 ## Features
 
-- **User Management**: A user has an editable name for a personalized experience and a set of collections.
-- **Collections**: Organize tasks into "collections" (groupings of similar to-dos), making it easy to categorize tasks. Each collection functions as a separate to-do list.
-- **Default Collection**: Every user is provided with a default *General* collection to get started quickly.
+- **User Management**: A user has an editable name for a personalized experience and a set of projects.
+- **projects**: Organize tasks into "projects" (groupings of similar to-dos), making it easy to categorize tasks. Each project functions as a separate to-do list.
+- **Default Project**: Every user is provided with a default *General* project to get started quickly.
 - **Task Modals**: The app includes interactive modals for smooth task management:
-  - **Create New Collection**: Add a new category for organizing to-dos.
-  - **Create New To-Do**: Quickly add to-dos within any collection.
+  - **Create New Project**: Add a new category for organizing to-dos.
+  - **Create New To-Do**: Quickly add to-dos within any project.
   - **Rename User**: Edit the user's name easily.
   - **View To-Do Details**: Open a detailed view for each to-do to see more information.
 
@@ -17,7 +17,7 @@ A feature-rich to-do list application built with Vanilla JavaScript, following o
 
 - **Object-Oriented Programming (OOP)**: The app is built with OOP principles to ensure modularity and maintainability.
 - **Separation of Concerns**: Code structure carefully separates logic, making each part of the app independently manageable and enhancing readability.
-- **Local Storage Integration**: To retain user data between sessions, including to-do lists, collections, and user settings.
+- **Local Storage Integration**: To retain user data between sessions, including to-do lists, projects, and user settings.
 - **Dates**: To input dates via date-picker and show them on todos for better productivity.
 
 ## Setup
