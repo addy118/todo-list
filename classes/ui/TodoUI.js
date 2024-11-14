@@ -60,7 +60,7 @@ export class TodoUI {
 
             function getDaySuffix(day) {
                 if (day > 3 && day < 21) {
-                    return 'th'; // For 4-20, use "th"
+                    return 'th';
                 }
                 switch (day % 10) {
                     case 1: return 'st';
@@ -74,8 +74,6 @@ export class TodoUI {
                 todo.dueTime ? '' :
                     `${date}${getDaySuffix(date)} ${month}, ${year}` :
                 `${date}${getDaySuffix(date)} ${month}, ${year}`;
-
-            console.log(formattedDueDate);
 
             const dateEl = DOM.createElement('div', ['due-date'], formattedDueDate);
 
@@ -226,27 +224,53 @@ export class TodoUI {
         const todoDetails = DOM.createElement('div', ['todo-details']);
 
         const titleExpand = DOM.createElement('div', ['title-expand']);
-        const titleLabel = DOM.createElement('b', [], 'Title: ');
+        const titleLabel = DOM.createElement('b', [], 'Title');
         const titleContent = DOM.createElement('span', [], todo.title);
         DOM.appendChildren(titleExpand, [titleLabel, titleContent]);
 
         const descExpand = DOM.createElement('div', ['desc-expand']);
-        const descLabel = DOM.createElement('b', [], 'Description: ');
+        const descLabel = DOM.createElement('b', [], 'Description');
         const descContent = DOM.createElement('span', [], todo.desc);
         DOM.appendChildren(descExpand, [descLabel, descContent]);
 
+        const dueDateObj = new Date(todo.dueDate);
+        const dueDate = format(new Date(dueDateObj), "dd-MM-yyyy")
+        const todayDate = format(new Date(), "dd-MM-yyyy");
+        let isDueToday = dueDate === todayDate ? true : false;
+
+        const date = format(dueDateObj, 'd');
+        const month = format(dueDateObj, 'MMM');
+        const year = format(dueDateObj, 'yyyy');
+
+        function getDaySuffix(day) {
+            if (day > 3 && day < 21) {
+                return 'th';
+            }
+            switch (day % 10) {
+                case 1: return 'st';
+                case 2: return 'nd';
+                case 3: return 'rd';
+                default: return 'th';
+            }
+        }
+
+        const formattedDueDate = isDueToday ?
+            todo.dueTime ? '' :
+                `${date}${getDaySuffix(date)} ${month}, ${year}` :
+            `${date}${getDaySuffix(date)} ${month}, ${year}`;
+
         const dueDateExpand = DOM.createElement('div', ['due-date-expand']);
-        const dueDateLabel = DOM.createElement('b', [], 'Due: ');
-        const dueDateContent = DOM.createElement('span', [], todo.dueDate);
+        const dueDateLabel = DOM.createElement('b', [], 'Due');
+        const dueDateContent = DOM.createElement('span', [], formattedDueDate);
         DOM.appendChildren(dueDateExpand, [dueDateLabel, dueDateContent]);
 
         const dueTimeExpand = DOM.createElement('div', ['due-time-expand']);
-        const dueTimeLabel = DOM.createElement('b', [], 'Due: ');
-        const dueTimeContent = DOM.createElement('span', [], todo.dueDate);
+        const dueTimeLabel = DOM.createElement('b', [], 'Due');
+        const dueTimeContent = DOM.createElement('span', [], todo.dueTime ? todo.dueTime : 'Not Set');
         DOM.appendChildren(dueTimeExpand, [dueTimeLabel, dueTimeContent]);
 
         const priorityExpand = DOM.createElement('div', ['priority-expand']);
-        const priorityLabel = DOM.createElement('b', [], 'Priority: ');
+        const priorityLabel = DOM.createElement('b', [], 'Priority');
         const priorityContent = DOM.createElement('span', [], todo.priority);
         DOM.appendChildren(priorityExpand, [priorityLabel, priorityContent]);
 

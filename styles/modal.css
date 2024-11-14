@@ -97,6 +97,14 @@ dialog button:active {
     border-radius: 4px;
 }
 
+.due-date-expand,
+.due-time-expand,
+.priority-expand {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 4px;
+}
+
 .todo-expand>button {
     margin-top: 14px;
     min-width: 100%;
