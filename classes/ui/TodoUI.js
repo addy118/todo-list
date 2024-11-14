@@ -47,7 +47,30 @@ export class TodoUI {
                 ['title', todo.status ? 'checked' : 'unchecked'],
                 todo.title);
 
-            const dateEl = DOM.createElement('div', ['due-date'], todo.dueDate);
+            // formatting the date to render
+            console.log(todo.dueDate, new Date(todo.dueDate));
+            const dueDateObj = new Date(todo.dueDate);
+
+            const date = format(dueDateObj, 'd');
+            const month = format(dueDateObj, 'MMM');
+            const year = format(dueDateObj, 'yyyy');
+
+            function getDaySuffix(day) {
+                if (day > 3 && day < 21) {
+                    return 'th'; // For 4-20, use "th"
+                }
+                switch (day % 10) {
+                    case 1: return 'st';
+                    case 2: return 'nd';
+                    case 3: return 'rd';
+                    default: return 'th';
+                }
+            }
+
+            const formattedDueDate = `${date}${getDaySuffix(date)} ${month}, ${year}`;
+            console.log(formattedDueDate);
+
+            const dateEl = DOM.createElement('div', ['due-date'], formattedDueDate);
 
             const deleteBtn = DOM.createElement('button', ['delete-todo'], '\u00d7');
 
@@ -107,7 +130,7 @@ export class TodoUI {
 
         const titleGroup = DOM.createInput('todo-title', 'Title: ', 'text');
         const descGroup = DOM.createInput('todo-desc', 'Description: ', 'text');
-        const dueDateGroup = DOM.createInput('todo-due', 'Due Date: ', 'text', 'DD-MM-YYYY');
+        const dueDateGroup = DOM.createInput('todo-due', 'Due Date: ', 'date');
         const priorityGroup = DOM.createDropdown('todo-priority', 'Priority: ', [
             { value: '', text: 'Select' },
             { value: 'Low', text: 'Low' },
@@ -125,7 +148,7 @@ export class TodoUI {
         // setting default values for testing
         // titleGroup.querySelector('input').value = '';
         descGroup.querySelector('input').value = 'None';
-        dueDateGroup.querySelector('input').value = '14-11-2024';
+        dueDateGroup.querySelector('input').value = '2024-11-14';
         priorityGroup.querySelector('select').value = 'Normal';
 
         DOM.appendChildren(form, [titleGroup, descGroup, dueDateGroup, priorityGroup, modalButtons]);
@@ -151,7 +174,7 @@ export class TodoUI {
             project.addTodo(newTodo);
             this.renderProjectTodos(project);
 
-            console.log(project.todos);
+            // console.log(project.todos);
 
 
             // clear the input fields
