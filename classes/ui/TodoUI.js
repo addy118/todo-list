@@ -1,5 +1,6 @@
 import { DOM } from "./DOM.js";
 import { Todo } from "../Todo.js";
+import { format } from "../../node_modules/date-fns/format.js";
 
 export class TodoUI {
     // projectwise todos
@@ -35,18 +36,26 @@ export class TodoUI {
             }
 
             const titleContainer = DOM.createElement('div', ['title-container']);
+
             const toggleBtn = DOM.createElement(
                 'button',
                 ['toggle'],
                 todo.status ? '\u2714' : '\u00a0'
             );
+
             const titleEl = DOM.createElement('div',
                 ['title', todo.status ? 'checked' : 'unchecked'],
                 todo.title);
+
+            const dateEl = DOM.createElement('div', ['due-date'], todo.dueDate);
+
             const deleteBtn = DOM.createElement('button', ['delete-todo'], '\u00d7');
 
+            const buttonsContainer = DOM.createElement('div', ['buttons-container']);
+
             DOM.appendChildren(titleContainer, [toggleBtn, titleEl]);
-            DOM.appendChildren(todoEl, [titleContainer, deleteBtn]);
+            DOM.appendChildren(buttonsContainer, [dateEl, deleteBtn]);
+            DOM.appendChildren(todoEl, [titleContainer, buttonsContainer]);
             DOM.appendChildren(todosContainer, [todoEl]);
 
             const todoExpandDialog = TodoUI.createTodoExpandDialog(todo);

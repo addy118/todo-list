@@ -45,7 +45,7 @@ h2 {
     background-color: #0000000c;
     display: flex;
     justify-content: space-between;
-    gap: 2px;
+    gap: 8px;
     align-items: center;
     border-radius: 6px;
     padding: 12px;
