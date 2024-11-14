@@ -232,7 +232,7 @@ export class TodoUI {
 
         const descExpand = DOM.createElement('div', ['desc-expand']);
         const descLabel = DOM.createElement('b', [], 'Description');
-        const descContent = DOM.createElement('span', [], todo.desc);
+        const descContent = DOM.createElement('span', [], todo.desc ? todo.desc : 'Not Set');
         DOM.appendChildren(descExpand, [descLabel, descContent]);
 
         const dueDateObj = new Date(todo.dueDate);
@@ -262,12 +262,12 @@ export class TodoUI {
             `${date}${getDaySuffix(date)} ${month}, ${year}`;
 
         const dueDateExpand = DOM.createElement('div', ['due-date-expand']);
-        const dueDateLabel = DOM.createElement('b', [], 'Due');
+        const dueDateLabel = DOM.createElement('b', [], 'Due Date');
         const dueDateContent = DOM.createElement('span', [], formattedDueDate);
         DOM.appendChildren(dueDateExpand, [dueDateLabel, dueDateContent]);
 
         const dueTimeExpand = DOM.createElement('div', ['due-time-expand']);
-        const dueTimeLabel = DOM.createElement('b', [], 'Due');
+        const dueTimeLabel = DOM.createElement('b', [], 'Due Time');
         const dueTimeContent = DOM.createElement('span', [], todo.dueTime ? todo.dueTime : 'Not Set');
         DOM.appendChildren(dueTimeExpand, [dueTimeLabel, dueTimeContent]);
 

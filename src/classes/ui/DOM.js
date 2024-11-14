@@ -39,7 +39,7 @@ export class DOM {
         if (inputType == 'date') {
             input.setAttribute('required', '');
             input.setAttribute('min', today);
-        }
+        };
 
         DOM.appendChildren(formGroup, [label, input]);
         return formGroup;
@@ -54,6 +54,7 @@ export class DOM {
         const select = DOM.createElement('select', []);
         select.setAttribute('id', id);
         select.setAttribute('name', id);
+        select.setAttribute('required', '');
 
         options.forEach(option => {
             const optionElement = DOM.createElement('option', [], option.text);
