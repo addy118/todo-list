@@ -51,7 +51,7 @@ export class TodoUI {
             // formatting the date to render
             // console.log(todo.dueDate, new Date(todo.dueDate));
             const dueDateObj = new Date(todo.dueDate);
-            const dueDate = format(new Date(dueDateObj), "dd-MM-yyyy")
+            const dueDate = format(new Date(dueDateObj), "dd-MM-yyyy");
             const todayDate = format(new Date(), "dd-MM-yyyy");
             let isDueToday = dueDate === todayDate ? true : false;
 
@@ -76,7 +76,7 @@ export class TodoUI {
                     `${date}${getDaySuffix(date)} ${month}, ${year}` :
                 `${date}${getDaySuffix(date)} ${month}, ${year}`;
 
-            const dateEl = DOM.createElement('div', ['due-date'], formattedDueDate);
+            const dateEl = DOM.createElement('div', ['due-date'], isDueToday ? 'Today' : formattedDueDate);
 
 
             const timeEl = DOM.createElement('div', ['due-time'], todo.dueTime);
@@ -165,7 +165,8 @@ export class TodoUI {
         // setting default values for testing
         // titleGroup.querySelector('input').value = '';
         descGroup.querySelector('input').value = 'None';
-        dueDateGroup.querySelector('input').value = '2024-11-14';
+        const todayDate = format(new Date(), "yyyy-MM-dd");
+        dueDateGroup.querySelector('input').value = todayDate;
         priorityGroup.querySelector('select').value = 'Normal';
 
         DOM.appendChildren(form, [titleGroup, descGroup, dueDateGroup, dueTimeGroup, priorityGroup, modalButtons]);
