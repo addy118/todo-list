@@ -27,10 +27,19 @@ export class DOM {
         label.setAttribute('for', id);
 
         const input = DOM.createElement('input', [], '');
+
+        // get today's date in yyyy-MM-dd format
+        const today = new Date().toISOString().split('T')[0];
+
         input.setAttribute('type', inputType);
         input.setAttribute('id', id);
         input.setAttribute('name', id);
         if (placeholder) input.setAttribute('placeholder', placeholder);
+        if (inputType == 'text') input.setAttribute('required', '');
+        if (inputType == 'date') {
+            input.setAttribute('required', '');
+            input.setAttribute('min', today);
+        }
 
         DOM.appendChildren(formGroup, [label, input]);
         return formGroup;
