@@ -1,11 +1,8 @@
 import { UserUI } from './classes/ui/UserUI.js';
-import { Project } from './classes/Project.js';
-import { Todo } from './classes/Todo.js';
 import { User } from './classes/User.js';
-import { ProjectUI } from './classes/ui/ProjectUI.js';
 import { Local } from './classes/LocalStorage.js';
 
-const defaultUser = Local.load() || new User('User');
+export const defaultUser = Local.load() || new User('User');
 UserUI.renderUser(defaultUser);
 
 

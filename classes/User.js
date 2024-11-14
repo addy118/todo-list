@@ -1,3 +1,4 @@
+import { Local } from "./LocalStorage.js";
 import { Project } from "./Project.js";
 
 export class User {
@@ -9,6 +10,7 @@ export class User {
 
     renameUser(name) {
         this.name = name;
+        Local.save(this);
     }
 
     get projects() {
@@ -21,11 +23,13 @@ export class User {
 
     addProject(project) {
         this.#projects.push(project);
+        Local.save(this);
     }
 
     deleteProject(projectId) {
         const projectIndex = this.#projects.findIndex(project => project.id == projectId);
         this.#projects.splice(projectIndex, 1);
+        Local.save(this);
     }
 
 

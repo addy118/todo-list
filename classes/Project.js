@@ -1,3 +1,5 @@
+import { defaultUser } from "../script.js";
+import { Local } from "./LocalStorage.js";
 import { Todo } from "./Todo.js";
 
 export class Project {
@@ -26,15 +28,18 @@ export class Project {
 
     addTodo(todo) {
         this.#todos.push(todo);
+        Local.save(defaultUser);
     }
 
     deleteTodo(todoId) {
         const todoIndex = this.#todos.findIndex(todo => todo.id == todoId);
         this.#todos.splice(todoIndex, 1);
+        Local.save(defaultUser);
     }
 
     deleteAllTodos() {
         this.#todos = [];
+        Local.save(defaultUser);
     }
 
     toggleTodo(todoId) {
@@ -42,6 +47,7 @@ export class Project {
         this.#todos[todoIndex].status == false ?
             this.#todos[todoIndex].status = true :
             this.#todos[todoIndex].status = false;
+        Local.save(defaultUser);
     }
 
     serialize() {
