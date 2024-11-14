@@ -23,6 +23,17 @@ export class TodoUI {
         project.todos.forEach(todo => {
             const todoEl = DOM.createElement('div', ['todo']);
             todoEl.setAttribute('data-todo-id', todo.id);
+
+            // priority styles for todoEl
+            // #FA4032, #FAB12F, #A1DD70
+            if (todo.priority.toLowerCase() === 'normal') {
+                todoEl.style.borderColor = '#FAB12F';
+            } else if (todo.priority.toLowerCase() === 'low') {
+                todoEl.style.borderColor = '#A1DD70';
+            } else {
+                todoEl.style.borderColor = '#FA4032'
+            }
+
             const titleContainer = DOM.createElement('div', ['title-container']);
             const toggleBtn = DOM.createElement(
                 'button',

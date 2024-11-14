@@ -1,3 +1,5 @@
+/* #FA4032, #FAB12F, #A1DD70 */
+
 .todos-container {
     background-color: var(--bg);
     flex: 4;
@@ -13,6 +15,9 @@
     align-items: center;
     justify-content: space-between;
     border-radius: 6px;
+
+    border-left: 6px solid;
+    /* border-color: #FAB12F; */
 }
 
 .title-container {
