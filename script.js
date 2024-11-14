@@ -1,6 +1,7 @@
 import { Project } from './classes/Project.js';
 import { Todo } from './classes/Todo.js';
 import { UserUI } from './classes/ui/UserUI.js';
+import { User } from './classes/User.js';
 
 const defaultUser = UserUI.setupUser();
 
@@ -17,7 +18,7 @@ console.groupEnd();
 
 // checks for project
 const expProject = defaultUser.projects[0];
-console.group('Project');
+console.groupCollapsed('Project');
 
 console.log(expProject);
 console.log(expProject.todos);
@@ -29,5 +30,20 @@ console.log(expProject.serialize().todos);
 // deserialize
 console.log(Project.deserialize(expProject.serialize()));
 console.log(Project.deserialize(expProject.serialize()).todos);
+
+console.groupEnd();
+
+// checks for user
+const expUser = defaultUser;
+console.group('User');
+
+console.log(defaultUser);
+
+// serialize
+defaultUser.saveToLocalStorage();
+console.log(localStorage.getItem('user'));
+
+// deserialize
+console.log(User.loadFromLocalStorage());
 
 console.groupEnd();
