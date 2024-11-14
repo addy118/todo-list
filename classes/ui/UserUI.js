@@ -84,6 +84,8 @@ export class UserUI {
 
         // initial render of projects & their todos
         ProjectUI.renderProjectTabs(defaultUser);
+
+        return defaultUser;
     }
 
     static createUsernameDialog() {

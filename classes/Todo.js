@@ -12,4 +12,31 @@ export class Todo {
     get id() {
         return this.#id;
     }
+
+    set id(localId) {
+        this.#id = localId;
+    }
+
+    serialize() {
+        return {
+            id: this.#id,
+            status: this.status,
+            title: this.title,
+            desc: this.desc,
+            dueDate: this.dueDate,
+            priority: this.priority,
+        }
+    }
+
+    static deserialize(localTodoObj) {
+        const todo = new Todo(localTodoObj.title,
+            localTodoObj.desc,
+            localTodoObj.dueDate,
+            localTodoObj.priority
+        );
+        todo.id = localTodoObj.id;
+        todo.status = localTodoObj.status;
+
+        return todo;
+    }
 }
