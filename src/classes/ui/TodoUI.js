@@ -256,10 +256,7 @@ export class TodoUI {
             }
         }
 
-        const formattedDueDate = isDueToday ?
-            todo.dueTime ? '' :
-                `${date}${getDaySuffix(date)} ${month}, ${year}` :
-            `${date}${getDaySuffix(date)} ${month}, ${year}`;
+        const formattedDueDate = isDueToday ? 'Today' : `${date}${getDaySuffix(date)} ${month}, ${year}`;
 
         const dueDateExpand = DOM.createElement('div', ['due-date-expand']);
         const dueDateLabel = DOM.createElement('b', [], 'Due Date');
