@@ -3,31 +3,33 @@ import { Project } from "../Project.js";
 import { ProjectUI } from "./ProjectUI.js";
 import { todos } from "../../todos.js";
 import { DOM } from "./DOM.js";
+import { Local } from "../LocalStorage.js";
 
 export class UserUI {
-    static setupUser() {
-        // create default user
-        const defaultUser = new User('User');
-
+    static renderUser(defaultUser) {
         // render username of the user
         const username = document.querySelector('.username>h2');
         username.textContent = defaultUser.name;
 
+        // set up modals for renaming user and creating projects
+        UserUI.setupUserModals(defaultUser);
 
         //TEST PROJECTS & TODOS 
         // assign the general project of the user to variable
-        const general = defaultUser.projects[0];
+        // const general = defaultUser.projects[0];
 
-        general.addTodo(todos[0]);
-        general.addTodo(todos[1]);
+        // general.addTodo(todos[0]);
+        // general.addTodo(todos[1]);
 
-        const grow = new Project('Grow');
-        defaultUser.addProject(grow);
-        grow.addTodo(todos[4]);
-        grow.addTodo(todos[5]);
+        // const grow = new Project('Grow');
+        // defaultUser.addProject(grow);
+        // grow.addTodo(todos[4]);
+        // grow.addTodo(todos[5]);
 
-        general.toggleTodo(todos[1].id);
-        grow.toggleTodo(todos[4].id)
+        // general.toggleTodo(todos[1].id);
+        // grow.toggleTodo(todos[4].id)
+
+        Local.save(defaultUser);
 
         // initial render of projects & their todos
         ProjectUI.renderProjectTabs(defaultUser);

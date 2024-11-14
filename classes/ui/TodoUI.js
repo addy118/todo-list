@@ -54,6 +54,7 @@ export class TodoUI {
                 e.stopPropagation();
                 project.toggleTodo(todo.id);
 
+
                 TodoUI.updateProjectTodos(project);
             })
 

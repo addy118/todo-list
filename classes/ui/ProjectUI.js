@@ -5,7 +5,8 @@ import { handleProjectEvents } from "../../projectEvents.js";
 export class ProjectUI {
     // userwise project tabs
     static renderProjectTabs(user) {
-        TodoUI.renderProjectTodos(user.projects[user.projects.length - 1]);
+        TodoUI.renderProjectTodos(user.projects[0]);
+        // TodoUI.renderProjectTodos(user.projects[user.projects.length - 1]);
 
         const projectsContainer = document.querySelector('.projects-container');
         DOM.clearContainer(projectsContainer);
