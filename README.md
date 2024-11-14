@@ -17,8 +17,8 @@ A feature-rich to-do list application built with Vanilla JavaScript, following o
 
 - **Object-Oriented Programming (OOP)**: The app is built with OOP principles to ensure modularity and maintainability.
 - **Separation of Concerns**: Code structure carefully separates logic, making each part of the app independently manageable and enhancing readability.
-- **Local Storage Integration**: (Future) To retain user data between sessions, including to-do lists, collections, and user settings.
-- **Dates**: (Future) To input dates via date-picker and show them on todos for better productivity.
+- **Local Storage Integration**: To retain user data between sessions, including to-do lists, collections, and user settings.
+- **Dates**: To input dates via date-picker and show them on todos for better productivity.
 
 ## Setup
 
