@@ -1,39 +1,39 @@
 dialog {
-    background-color: var(--bg);
-    color: var(--text);
-    border: none;
-    outline: none;
-    border-radius: 6px;
-    padding: 18px;
+  background-color: var(--bg);
+  color: var(--text);
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  padding: 18px;
 }
 
 .todo-expand {
-    width: 40%;
+  width: 40%;
 }
 
 dialog::backdrop {
-    background-color: #00000099;
+  background-color: #00000099;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .form-group {
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
 }
 
 input,
 select {
-    background-color: white;
-    color: var(--text);
-    border: thin solid var(--text);
-    border-radius: 4px;
-    padding: 4px;
+  background-color: white;
+  color: var(--text);
+  border: thin solid var(--text);
+  border-radius: 4px;
+  padding: 4px;
 }
 
 /* 
@@ -43,45 +43,45 @@ input#user-name {
 
 input:focus,
 select:focus {
-    outline: none;
-    background-color: white;
-    color: var(--text);
+  outline: none;
+  background-color: white;
+  color: var(--text);
 }
 
 input::placeholder {
-    color: #C68B59;
+  color: #c68b59;
 }
 
 dialog button {
-    background-color: var(--brown);
-    color: white;
-    flex: 1;
-    border: none;
-    outline: none;
-    font-size: 18px;
-    padding: 6px;
-    border-radius: 4px;
-    cursor: pointer;
+  background-color: var(--brown);
+  color: white;
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  padding: 6px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 dialog button:hover {
-    background-color: var(--hover-brown);
+  background-color: var(--hover-brown);
 }
 
 dialog button:active {
-    background-color: var(--active-brown);
+  background-color: var(--active-brown);
 }
 
 .todo-details {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .modal-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
 }
 
 .title-expand,
@@ -89,23 +89,23 @@ dialog button:active {
 .due-date-expand,
 .due-time-expand,
 .priority-expand {
-    background-color: #0000000c;
-    padding: 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    border-radius: 4px;
+  background-color: #0000000c;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  border-radius: 4px;
 }
 
 .due-date-expand,
 .due-time-expand,
 .priority-expand {
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 4px;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 4px;
 }
 
-.todo-expand>button {
-    margin-top: 14px;
-    min-width: 100%;
+.todo-expand > button {
+  margin-top: 14px;
+  min-width: 100%;
 }

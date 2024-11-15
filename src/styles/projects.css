@@ -1,75 +1,73 @@
 .projects-section {
-    background-color: var(--coffee);
-    border-radius: 4px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+  background-color: var(--coffee);
+  border-radius: 4px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
-
 
 /* username */
 .username {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
 }
 
 .username .add-project,
 .username .rename {
-    width: 1.2rem;
-    height: 1.2rem;
-    padding: 12px;
-    display: flex;
+  width: 1.2rem;
+  height: 1.2rem;
+  padding: 12px;
+  display: flex;
 }
 
 h2 {
-    font-size: 22px;
-    margin: 0;
+  font-size: 22px;
+  margin: 0;
 }
 
 .username:hover button:hover {
-    background-color: #00000010;
+  background-color: #00000010;
 }
-
 
 /* projects tab */
 .projects-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .project {
-    background-color: #0000000c;
-    display: flex;
-    justify-content: space-between;
-    gap: 8px;
-    align-items: center;
-    border-radius: 6px;
-    padding: 12px;
+  background-color: #0000000c;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+  border-radius: 6px;
+  padding: 12px;
 }
 
 .buttons-container {
-    display: flex;
-    gap: 2px;
+  display: flex;
+  gap: 2px;
 }
 
 .project-name,
 .project,
 .todo {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .project:hover,
 .todo:hover {
-    background-color: #00000015;
+  background-color: #00000015;
 }
 
 .project:active,
 .todo:active {
-    background-color: #00000020;
+  background-color: #00000020;
 }
 
 .add-todo,
@@ -77,7 +75,7 @@ h2 {
 .rename,
 .delete-project,
 .delete-todo {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .rename,
@@ -85,9 +83,9 @@ h2 {
 .add-todo,
 .delete-project,
 .delete-todo {
-    background-color: inherit;
-    color: var(--chocolate);
-    outline: none;
+  background-color: inherit;
+  color: var(--chocolate);
+  outline: none;
 }
 
 .toggle,
@@ -96,43 +94,43 @@ h2 {
 .add-todo,
 .add-project,
 .delete-project {
-    cursor: pointer;
-    border: none;
-    text-align: center;
-    border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+  border-radius: 4px;
 }
 
 .add-todo,
 .delete-project,
 .delete-todo {
-    /* display: none; */
-    visibility: hidden;
+  /* display: none; */
+  visibility: hidden;
 }
 
 .toggle {
-    width: 1.2rem;
-    height: 1.2rem;
-    font-size: 17px;
-    color: var(--text);
+  width: 1.2rem;
+  height: 1.2rem;
+  font-size: 17px;
+  color: var(--text);
 }
 
 .project:hover .add-todo,
 .project:hover .delete-project,
 .delete-todo {
-    visibility: visible;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  visibility: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .project:hover .add-todo:hover,
 .project:hover .delete-project:hover {
-    background-color: #00000010;
+  background-color: #00000010;
 }
 
 .project:hover .add-todo:active,
 .project:hover .delete-project:active,
 .username:hover .add-project:active,
 .username:hover .rename:active {
-    background-color: #00000020;
+  background-color: #00000020;
 }

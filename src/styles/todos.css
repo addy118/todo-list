@@ -1,56 +1,55 @@
 /* #FA4032, #FAB12F, #A1DD70 */
 
 .todos-container {
-    background-color: var(--bg);
-    border-radius: 4px;
-    flex: 4;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    gap: 10px;
+  background-color: var(--bg);
+  border-radius: 4px;
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 10px;
 }
 
 .todo {
-    background-color: #0000000c;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    border-radius: 6px;
+  background-color: #0000000c;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-radius: 6px;
 
-    border-left: 6px solid;
-    /* border-color: #FAB12F; */
+  border-left: 6px solid;
+  /* border-color: #FAB12F; */
 }
 
 .title-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .todo .buttons-container {
-    gap: 10px;
+  gap: 10px;
 }
 
 .due-date,
 .due-time {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-
 .toggle {
-    background-color: white;
-    color: var(--chocolate);
+  background-color: white;
+  color: var(--chocolate);
 }
 
 .checked {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 .unchecked {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 /* .toggle,
@@ -69,18 +68,16 @@
 
 /* .delete-project, */
 .delete-todo {
-    background-color: var(--red);
-    color: white;
+  background-color: var(--red);
+  color: white;
 }
-
-
 
 /* .delete-project:hover, */
 .delete-todo:hover {
-    background-color: var(--hover-red);
+  background-color: var(--hover-red);
 }
 
 /* .delete-project:active, */
 .delete-todo:active {
-    background-color: var(--click-red);
+  background-color: var(--click-red);
 }

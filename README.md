@@ -6,7 +6,7 @@ A feature-rich task listing application built with Vanilla JavaScript, following
 
 - **User Management**: A user has an editable name for a personalized experience and a set of projects.
 - **projects**: Organize tasks into "projects" (groupings of similar to-dos), making it easy to categorize tasks. Each project functions as a separate to-do list.
-- **Default Project**: Every user is provided with a default *General* project to get started quickly.
+- **Default Project**: Every user is provided with a default _General_ project to get started quickly.
 - **Task Modals**: The app includes interactive modals for smooth task management:
   - **Create New Project**: Add a new category for organizing to-dos.
   - **Create New To-Do**: Quickly add to-dos within any project.
@@ -23,8 +23,11 @@ A feature-rich task listing application built with Vanilla JavaScript, following
 ## Setup
 
 1. Clone this repository:
+
    ```bash
    git clone https://github.com/addy118/todo-list.git
    cd todo-list
+
+   ```
 
 2. Open `index.html` in your favourite browser
