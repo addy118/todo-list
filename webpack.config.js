@@ -18,6 +18,9 @@ module.exports = {
   devtool: "eval-source-map",
   devServer: {
     watchFiles: ["./src/index.html"],
+    client: {
+      logging: "none",
+    },
   },
 
   // for handling html file
